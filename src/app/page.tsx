@@ -37,7 +37,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl">
           <AnimateOnScroll>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-gradient">NyxWorks</span> Style Guide
+              <span className="text-gradient">NyxWorks.ai</span> Style Guide
             </h1>
             <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mb-16">
               Design tokens, components, and patterns for the NyxWorks design system.

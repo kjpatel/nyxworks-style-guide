@@ -39,10 +39,10 @@ export default function Header() {
             alt="NyxWorks"
             width={28}
             height={28}
-            className="rounded-sm"
+            className={`rounded-sm ${theme === "light" ? "mix-blend-multiply" : ""}`}
           />
           <span className="text-lg font-bold tracking-tight">
-            <span className="text-gradient">NyxWorks</span>
+            <span className="text-gradient">NyxWorks.ai</span>
             <span className="text-[var(--color-text-muted)] font-normal ml-2 text-sm">Style Guide</span>
           </span>
         </Link>
