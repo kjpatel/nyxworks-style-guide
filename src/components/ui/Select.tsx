@@ -1,9 +1,13 @@
 import { SelectHTMLAttributes } from "react";
 import { ChevronDown } from "lucide-react";
 
+/** Themed select dropdown with custom chevron, label, and error state. */
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+  /** Label displayed above the select. */
   label?: string;
+  /** Error message displayed below. Turns border red when set. */
   error?: string;
+  /** List of options with value/label pairs. */
   options: { value: string; label: string }[];
 }
 

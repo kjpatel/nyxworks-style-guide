@@ -1,11 +1,18 @@
+/** Column definition for the Table component. */
 interface Column<T> {
+  /** Key of the data object to display in this column. */
   key: keyof T;
+  /** Header text shown in the table head. */
   header: string;
+  /** Additional CSS classes for both th and td cells. */
   className?: string;
 }
 
+/** Generic data table with hover rows and themed borders. */
 interface TableProps<T> {
+  /** Column definitions. */
   columns: Column<T>[];
+  /** Array of row data objects. */
   data: T[];
 }
 

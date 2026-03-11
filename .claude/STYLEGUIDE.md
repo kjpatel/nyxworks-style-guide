@@ -1,34 +1,69 @@
 # NyxWorks Design System — Machine-Readable Spec
 
 Use this file when building any NyxWorks sub-project to maintain visual consistency.
+Reference: https://styleguide.nyxworks.ai
 
 ## Tech Stack
 
-- Next.js 16 (App Router, static export)
-- Tailwind CSS v4 with `@theme` block
+- Next.js 16 (App Router, static export via `output: "export"`)
+- Tailwind CSS v4 with `@theme` block + `@custom-variant dark`
 - Geist Sans + Mono fonts (via `geist` npm package)
 - Framer Motion for animations
 - Lucide React for icons
 - TypeScript
 
-## Design Tokens
+## Brand Colors
 
-### Colors — Core Palette
+| Name | Hex | Role |
+|------|-----|------|
+| Midnight Black | `#0B0F1A` | Dark backgrounds |
+| Deep Space Purple | `#5B3FD6` | Primary accent |
+| Electric Violet | `#8A5CFF` | Accent highlights |
+| Silver Accent | `#C9CCD6` | Secondary text |
+
+## Dark / Light Theme System
+
+The design system supports **dark mode (default)** and **light mode**. Themes are implemented via CSS custom properties that swap values based on a `.dark` class on `<html>`.
+
+### How It Works
+
+1. **Light mode** values are defined in the `@theme` block (Tailwind's default layer)
+2. **Dark mode** values override them inside a `.dark {}` selector
+3. Tailwind's `@custom-variant dark` enables `dark:` utility classes
+4. A `<script>` in `<head>` applies `.dark` before first paint to prevent flash
+5. A toggle in the header reads/writes `localStorage.theme` and toggles `.dark` on `<html>`
+
+### Colors — Light Mode (Default)
 
 | Token | CSS Variable | Value | Usage |
 |-------|-------------|-------|-------|
-| bg | `--color-bg` | `#0a0a0f` | Page background |
-| bg-card | `--color-bg-card` | `#13131a` | Card/panel backgrounds |
-| bg-card-hover | `--color-bg-card-hover` | `#1a1a24` | Card hover state |
-| border | `--color-border` | `#1e1e2e` | Borders, dividers |
-| text-primary | `--color-text-primary` | `#e4e4e7` | Headings, body text |
-| text-secondary | `--color-text-secondary` | `#a1a1aa` | Descriptions |
-| text-muted | `--color-text-muted` | `#71717a` | Captions, placeholders |
-| accent | `--color-accent` | `#7c3aed` | Primary brand, buttons |
-| accent-light | `--color-accent-light` | `#a78bfa` | Hover states, highlights |
-| accent-dark | `--color-accent-dark` | `#6d28d9` | Active states, gradients |
+| bg | `--color-bg` | `#F4F3FA` | Page background |
+| bg-card | `--color-bg-card` | `#FFFFFF` | Card/panel backgrounds |
+| bg-card-hover | `--color-bg-card-hover` | `#EEEDF8` | Card hover state |
+| border | `--color-border` | `#D8D6E8` | Borders, dividers |
+| text-primary | `--color-text-primary` | `#0B0F1A` | Headings, body text |
+| text-secondary | `--color-text-secondary` | `#4A4E5C` | Descriptions |
+| text-muted | `--color-text-muted` | `#8B8FA0` | Captions, placeholders |
+| accent | `--color-accent` | `#5B3FD6` | Primary brand, buttons |
+| accent-light | `--color-accent-light` | `#7B5AEF` | Hover states, highlights |
+| accent-dark | `--color-accent-dark` | `#4A2FC0` | Active states, gradients |
 
-### Colors — Semantic
+### Colors — Dark Mode
+
+| Token | CSS Variable | Value | Usage |
+|-------|-------------|-------|-------|
+| bg | `--color-bg` | `#0B0F1A` | Page background |
+| bg-card | `--color-bg-card` | `#12162A` | Card/panel backgrounds |
+| bg-card-hover | `--color-bg-card-hover` | `#1A1F36` | Card hover state |
+| border | `--color-border` | `#1E2440` | Borders, dividers |
+| text-primary | `--color-text-primary` | `#E8EAF0` | Headings, body text |
+| text-secondary | `--color-text-secondary` | `#C9CCD6` | Descriptions |
+| text-muted | `--color-text-muted` | `#7B7F8E` | Captions, placeholders |
+| accent | `--color-accent` | `#5B3FD6` | Primary brand, buttons |
+| accent-light | `--color-accent-light` | `#8A5CFF` | Hover states, highlights |
+| accent-dark | `--color-accent-dark` | `#4A2FC0` | Active states, gradients |
+
+### Colors — Semantic (Both Themes)
 
 | Token | CSS Variable | Value | Usage |
 |-------|-------------|-------|-------|
@@ -72,17 +107,8 @@ className="hover:border-[var(--color-accent)]/40"
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
-<html className={`${GeistSans.variable} ${GeistMono.variable}`}>
+<html className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
   <body className="font-sans antialiased">
-```
-
-### globals.css @theme block
-
-```css
-@theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 ```
 
 ### Scale
@@ -265,26 +291,39 @@ import { Search, Settings, User } from "lucide-react";
 - Use `py-24 px-6` for page sections
 - Use `max-w-6xl mx-auto` for content constraint
 - Use Geist Sans for all text, Geist Mono for code
+- Support both dark and light themes via CSS variables
+- Use `.dark` class on `<html>` for dark mode (Tailwind `@custom-variant dark`)
 
 ### Don't
 
 - Don't use raw hex colors — always use CSS variables
 - Don't use `rounded-md` or `rounded-sm` — use `rounded-lg` or `rounded-2xl`
-- Don't use light/white backgrounds — this is a dark theme
 - Don't add `!important` to override styles
 - Don't use Inter, system fonts, or other typefaces
 - Don't use opacity-based text colors — use the text-primary/secondary/muted tokens
 - Don't forget `no-underline` on card-wrapping `<a>` tags
+- Don't hardcode theme-specific colors — always use CSS variables so both themes work
 
 ## File Structure Convention
 
 ```
 src/
-├── app/           # Pages (App Router)
+├── app/
+│   ├── globals.css      # @theme tokens, dark overrides, utility classes
+│   ├── layout.tsx       # Root layout with fonts, theme script, Header
+│   ├── icon.png         # Favicon (App Router convention)
+│   └── [route]/page.tsx # Pages
 ├── components/
-│   ├── ui/        # Reusable primitives (Button, Card, Input, etc.)
-│   └── *.tsx      # Feature/layout components
-└── data/          # Static data and type definitions
+│   ├── ui/              # Reusable primitives (Button, Card, Input, etc.)
+│   ├── Header.tsx       # Site header with nav + theme toggle
+│   ├── Footer.tsx       # Site footer
+│   └── AnimateOnScroll.tsx  # Scroll-triggered entrance wrapper
+├── data/                # Static data and type definitions
+public/
+├── icon-dark.png        # NyxWorks icon for dark mode
+├── icon-light.png       # NyxWorks icon for light mode
+├── logo-dark.png        # NyxWorks full logo for dark mode
+└── logo-light.png       # NyxWorks full logo for light mode
 ```
 
 ## globals.css Template
@@ -292,19 +331,25 @@ src/
 ```css
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-bg: #0a0a0f;
-  --color-bg-card: #13131a;
-  --color-bg-card-hover: #1a1a24;
-  --color-border: #1e1e2e;
-  --color-text-primary: #e4e4e7;
-  --color-text-secondary: #a1a1aa;
-  --color-text-muted: #71717a;
-  --color-accent: #7c3aed;
-  --color-accent-light: #a78bfa;
-  --color-accent-dark: #6d28d9;
+
+  /* Core palette — Light (default) */
+  --color-bg: #F4F3FA;
+  --color-bg-card: #FFFFFF;
+  --color-bg-card-hover: #EEEDF8;
+  --color-border: #D8D6E8;
+  --color-text-primary: #0B0F1A;
+  --color-text-secondary: #4A4E5C;
+  --color-text-muted: #8B8FA0;
+  --color-accent: #5B3FD6;
+  --color-accent-light: #7B5AEF;
+  --color-accent-dark: #4A2FC0;
+
+  /* Semantic colors */
   --color-success: #22c55e;
   --color-success-light: #4ade80;
   --color-warning: #f59e0b;
@@ -313,6 +358,20 @@ src/
   --color-error-light: #f87171;
   --color-info: #3b82f6;
   --color-info-light: #60a5fa;
+}
+
+/* Dark mode overrides */
+.dark {
+  --color-bg: #0B0F1A;
+  --color-bg-card: #12162A;
+  --color-bg-card-hover: #1A1F36;
+  --color-border: #1E2440;
+  --color-text-primary: #E8EAF0;
+  --color-text-secondary: #C9CCD6;
+  --color-text-muted: #7B7F8E;
+  --color-accent: #5B3FD6;
+  --color-accent-light: #8A5CFF;
+  --color-accent-dark: #4A2FC0;
 }
 
 html { scroll-behavior: smooth; }
@@ -337,4 +396,104 @@ body { background-color: var(--color-bg); color: var(--color-text-primary); }
   z-index: -1;
 }
 .glow-border:hover::before { opacity: 0.5; }
+```
+
+## layout.tsx Template
+
+```tsx
+import type { Metadata } from "next";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "My NyxWorks App",
+  description: "Built with the NyxWorks design system.",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t!=="light")document.documentElement.classList.add("dark")}catch(e){document.documentElement.classList.add("dark")}})()`,
+          }}
+        />
+      </head>
+      <body className="font-sans antialiased">
+        {children}
+      </body>
+    </html>
+  );
+}
+```
+
+## Theme Toggle Pattern
+
+```tsx
+"use client";
+import { useState, useEffect } from "react";
+import { Sun, Moon } from "lucide-react";
+
+export function ThemeToggle() {
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("theme") as "dark" | "light" | null;
+    setTheme(saved ?? "dark");
+  }, []);
+
+  function toggle() {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    document.documentElement.classList.toggle("dark", next === "dark");
+    localStorage.setItem("theme", next);
+  }
+
+  return (
+    <button
+      onClick={toggle}
+      className="p-2 rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-card)] transition-colors"
+      aria-label="Toggle theme"
+    >
+      {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+    </button>
+  );
+}
+```
+
+## Dependencies (package.json)
+
+```json
+{
+  "dependencies": {
+    "next": "^16",
+    "react": "^19",
+    "react-dom": "^19",
+    "geist": "^1",
+    "framer-motion": "^12",
+    "lucide-react": "^0.474"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4"
+  }
+}
+```
+
+## next.config.ts (Static Export)
+
+```ts
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  output: "export",
+  images: { unoptimized: true },
+};
+
+export default nextConfig;
 ```

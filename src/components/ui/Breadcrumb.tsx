@@ -2,11 +2,15 @@ import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 interface BreadcrumbItem {
+  /** Display text for the breadcrumb segment. */
   label: string;
+  /** Link URL. Last item (current page) typically omits this. */
   href?: string;
 }
 
+/** Navigation breadcrumb trail with chevron separators. Last item renders as plain text. */
 interface BreadcrumbProps {
+  /** Ordered list of breadcrumb segments. */
   items: BreadcrumbItem[];
 }
 

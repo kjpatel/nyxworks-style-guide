@@ -1,7 +1,10 @@
 import { InputHTMLAttributes } from "react";
 
+/** Text input with optional label and error message. Supports all native input attributes. */
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  /** Label displayed above the input. Also used to generate `id` if not provided. */
   label?: string;
+  /** Error message displayed below the input. Turns border red when set. */
   error?: string;
 }
 

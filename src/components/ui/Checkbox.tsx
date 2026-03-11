@@ -2,10 +2,15 @@
 
 import { Check } from "lucide-react";
 
+/** Custom checkbox with accent color when checked. Uses button with role="checkbox" for accessibility. */
 interface CheckboxProps {
+  /** Text label displayed next to the checkbox. */
   label: string;
+  /** Controlled checked state. @default false */
   checked?: boolean;
+  /** Called with the new checked value when toggled. */
   onChange?: (checked: boolean) => void;
+  /** Disables interaction and reduces opacity. @default false */
   disabled?: boolean;
 }
 

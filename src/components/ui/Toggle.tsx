@@ -1,9 +1,14 @@
 "use client";
 
+/** Switch/toggle control with sliding knob animation. Uses button with role="switch" for accessibility. */
 interface ToggleProps {
+  /** Text label displayed next to the toggle. */
   label: string;
+  /** Controlled on/off state. @default false */
   checked?: boolean;
+  /** Called with the new state when toggled. */
   onChange?: (checked: boolean) => void;
+  /** Disables interaction and reduces opacity. @default false */
   disabled?: boolean;
 }
 

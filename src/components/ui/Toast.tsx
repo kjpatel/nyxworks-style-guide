@@ -2,9 +2,13 @@ import { X, CheckCircle, AlertCircle, Info, AlertTriangle } from "lucide-react";
 
 type Variant = "info" | "success" | "warning" | "error";
 
+/** Notification toast with semantic icon and optional close button. */
 interface ToastProps {
+  /** Semantic variant controlling icon and color. @default "info" */
   variant?: Variant;
+  /** Text message displayed in the toast. */
   message: string;
+  /** If provided, renders a close button that calls this handler. */
   onClose?: () => void;
 }
 

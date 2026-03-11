@@ -1,10 +1,15 @@
 import { ReactNode } from "react";
 import { Inbox } from "lucide-react";
 
+/** Centered placeholder for empty lists or missing content. Defaults to an Inbox icon. */
 interface EmptyStateProps {
+  /** Custom icon. Defaults to Lucide Inbox. */
   icon?: ReactNode;
+  /** Primary heading text. */
   title: string;
+  /** Secondary description below the title. */
   description?: string;
+  /** Action element (e.g. a Button) rendered below the description. */
   action?: ReactNode;
 }
 

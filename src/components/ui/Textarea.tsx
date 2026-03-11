@@ -1,7 +1,10 @@
 import { TextareaHTMLAttributes } from "react";
 
+/** Multi-line text input with optional label and error message. */
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  /** Label displayed above the textarea. */
   label?: string;
+  /** Error message displayed below. Turns border red when set. */
   error?: string;
 }
 

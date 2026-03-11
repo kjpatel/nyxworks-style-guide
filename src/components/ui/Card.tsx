@@ -2,7 +2,9 @@ import { ReactNode } from "react";
 
 type Variant = "default" | "interactive" | "featured";
 
+/** Container with rounded corners and themed border. Featured variant adds accent glow. */
 interface CardProps {
+  /** Card style: default (static), interactive (hover + glow-border), featured (accent border + top gradient bar). @default "default" */
   variant?: Variant;
   children: ReactNode;
   className?: string;

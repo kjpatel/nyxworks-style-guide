@@ -3,10 +3,15 @@
 import { ReactNode, useEffect } from "react";
 import { X } from "lucide-react";
 
+/** Full-screen overlay dialog with backdrop blur. Locks body scroll when open. */
 interface ModalProps {
+  /** Controls visibility. */
   open: boolean;
+  /** Called when backdrop is clicked or close button pressed. */
   onClose: () => void;
+  /** Header title text. */
   title: string;
+  /** Modal body content. */
   children: ReactNode;
 }
 

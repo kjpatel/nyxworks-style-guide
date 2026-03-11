@@ -3,12 +3,17 @@
 import { useState, ReactNode } from "react";
 
 interface Tab {
+  /** Tab button label. */
   label: string;
+  /** Content rendered when this tab is active. */
   content: ReactNode;
 }
 
+/** Tabbed content switcher with accent underline on the active tab. */
 interface TabsProps {
+  /** Array of tab definitions. */
   tabs: Tab[];
+  /** Initially active tab index. @default 0 */
   defaultIndex?: number;
 }
 

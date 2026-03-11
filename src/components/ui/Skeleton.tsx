@@ -1,4 +1,6 @@
+/** Pulsing placeholder for loading states. Pass Tailwind size classes to control dimensions. */
 interface SkeletonProps {
+  /** Tailwind classes for width/height. @default "h-4 w-full" */
   className?: string;
 }
 

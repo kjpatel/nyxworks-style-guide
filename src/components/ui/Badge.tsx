@@ -3,8 +3,11 @@ import { ReactNode } from "react";
 type Color = "default" | "accent" | "success" | "warning" | "error" | "info";
 type Size = "sm" | "md";
 
+/** Inline label/tag with semantic color variants. */
 interface BadgeProps {
+  /** Semantic color. @default "default" */
   color?: Color;
+  /** Badge size. @default "md" */
   size?: Size;
   children: ReactNode;
 }

@@ -4,12 +4,17 @@ import { useState, useRef, useEffect, ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 
 interface DropdownItem {
+  /** Display text for the menu item. */
   label: string;
+  /** Called when the item is clicked. Menu closes automatically. */
   onClick: () => void;
 }
 
+/** Click-triggered dropdown menu with auto-close on outside click. */
 interface DropdownProps {
+  /** Content rendered inside the trigger button (text, icon, etc.). */
   trigger: ReactNode;
+  /** Menu items with label and click handler. */
   items: DropdownItem[];
 }
 

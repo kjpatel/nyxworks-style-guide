@@ -4,9 +4,13 @@ import { Loader2 } from "lucide-react";
 type Variant = "primary" | "secondary" | "ghost" | "danger";
 type Size = "sm" | "md" | "lg";
 
+/** Themed button with variant styles, sizes, and loading state. */
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Visual style. @default "primary" */
   variant?: Variant;
+  /** Button size. @default "md" */
   size?: Size;
+  /** Shows a spinner and disables the button. @default false */
   loading?: boolean;
   children: ReactNode;
 }

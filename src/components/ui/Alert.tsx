@@ -3,9 +3,13 @@ import { AlertCircle, CheckCircle, AlertTriangle, Info } from "lucide-react";
 
 type Variant = "info" | "success" | "warning" | "error";
 
+/** Inline alert banner with semantic icon, optional title, and body text. */
 interface AlertProps {
+  /** Semantic variant controlling icon and color. @default "info" */
   variant?: Variant;
+  /** Optional bold title above the body text. */
   title?: string;
+  /** Alert body content. */
   children: ReactNode;
 }
 

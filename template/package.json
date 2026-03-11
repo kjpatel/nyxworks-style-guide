@@ -1,0 +1,28 @@
+{
+  "name": "nyxworks-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^16",
+    "react": "^19",
+    "react-dom": "^19",
+    "geist": "^1",
+    "framer-motion": "^12",
+    "lucide-react": "^0.577"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^25",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "postcss": "^8"
+  }
+}

@@ -2,8 +2,11 @@
 
 import { useState, ReactNode } from "react";
 
+/** Hover-triggered tooltip that appears above the wrapped element. */
 interface TooltipProps {
+  /** Text displayed in the tooltip. */
   content: string;
+  /** Element that triggers the tooltip on hover. */
   children: ReactNode;
 }
 

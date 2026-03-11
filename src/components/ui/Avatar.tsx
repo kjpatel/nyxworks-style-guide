@@ -1,9 +1,14 @@
 type Size = "sm" | "md" | "lg";
 
+/** Circular avatar showing an image or initials fallback with accent background. */
 interface AvatarProps {
+  /** Image URL. Falls back to initials if not provided. */
   src?: string;
+  /** Alt text for the image. */
   alt?: string;
+  /** Full name used to generate initials when no src is provided. */
   name?: string;
+  /** Avatar size. @default "md" */
   size?: Size;
 }
 

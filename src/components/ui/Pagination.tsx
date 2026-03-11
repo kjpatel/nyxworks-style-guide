@@ -2,9 +2,13 @@
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+/** Numbered page navigation with prev/next arrows. Active page uses accent background. */
 interface PaginationProps {
+  /** Current active page (1-indexed). */
   page: number;
+  /** Total number of pages. */
   totalPages: number;
+  /** Called with the new page number when navigated. */
   onChange: (page: number) => void;
 }
 

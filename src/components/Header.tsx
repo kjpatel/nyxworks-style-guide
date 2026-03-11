@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 const navItems = [
   { label: "Foundations", href: "/foundations" },
@@ -14,14 +15,36 @@ const navItems = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const pathname = usePathname();
+
+  useEffect(() => {
+    const saved = localStorage.getItem("theme") as "dark" | "light" | null;
+    setTheme(saved ?? "dark");
+  }, []);
+
+  function toggleTheme() {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    document.documentElement.classList.toggle("dark", next === "dark");
+    localStorage.setItem("theme", next);
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/80 backdrop-blur-md">
       <div className="mx-auto max-w-6xl flex items-center justify-between px-6 h-16">
-        <Link href="/" className="text-lg font-bold tracking-tight no-underline">
-          <span className="text-gradient">NyxWorks</span>
-          <span className="text-[var(--color-text-muted)] font-normal ml-2 text-sm">Style Guide</span>
+        <Link href="/" className="flex items-center gap-2 no-underline">
+          <Image
+            src={theme === "dark" ? "/icon-dark.png" : "/icon-light.png"}
+            alt="NyxWorks"
+            width={28}
+            height={28}
+            className="rounded-sm"
+          />
+          <span className="text-lg font-bold tracking-tight">
+            <span className="text-gradient">NyxWorks</span>
+            <span className="text-[var(--color-text-muted)] font-normal ml-2 text-sm">Style Guide</span>
+          </span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
@@ -43,12 +66,22 @@ export default function Header() {
           })}
         </nav>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden p-2 text-[var(--color-text-secondary)]"
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        <div className="flex items-center gap-1">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-card)] transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden p-2 text-[var(--color-text-secondary)]"
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
       {open && (
