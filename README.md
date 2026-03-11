@@ -96,4 +96,4 @@ Deployed to AWS S3 + CloudFront.
 
 ## License
 
-Private — NyxWorks internal use.
+MIT — see [LICENSE](LICENSE).
