@@ -98,25 +98,24 @@ className="hover:border-[var(--color-accent)]/40"
 
 ### Wordmark Rules
 
-The company name **NyxWorks.ai** uses split typography:
+The company name **NyxWorks.ai** uses **Orbitron Bold** — a geometric, futuristic sans-serif that matches the logo asset:
 
-- **"NyxWorks."** — Inter Bold, `var(--color-text-primary)`
-- **"ai"** — Space Grotesk Bold, Electric Violet `#8A5CFF`
+- **"NyxWorks."** — Orbitron Bold, `var(--color-text-primary)`
+- **"ai"** — Orbitron Bold, Electric Violet `#8A5CFF`
 
-This treatment applies whenever the brand name appears next to the logo. The hero/page headings may use the `.text-gradient` class instead.
+This treatment applies only to the wordmark (next to the logo). All other text uses Geist Sans. The hero/page headings may use the `.text-gradient` class instead.
 
 ```tsx
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Orbitron } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", weight: ["700"] });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk", weight: ["700"] });
+const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-orbitron", weight: ["700"] });
 
 // In layout.tsx <html>:
-<html className={`... ${inter.variable} ${spaceGrotesk.variable}`}>
+<html className={`... ${orbitron.variable}`}>
 
 // Wordmark JSX:
-<span className="font-[family-name:var(--font-inter)] text-[var(--color-text-primary)]">NyxWorks.</span>
-<span className="font-[family-name:var(--font-space-grotesk)] text-[#8A5CFF]">ai</span>
+<span className="font-[family-name:var(--font-orbitron)] text-[var(--color-text-primary)]">NyxWorks.</span>
+<span className="font-[family-name:var(--font-orbitron)] text-[#8A5CFF]">ai</span>
 ```
 
 ### Logo Assets
@@ -150,20 +149,18 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space
 
 - **Geist Sans** (`font-sans` / `--font-geist-sans`): All body text and UI elements
 - **Geist Mono** (`font-mono` / `--font-geist-mono`): Code blocks, data, technical content
-- **Inter** (`--font-inter`): Wordmark "NyxWorks." only — bold 700
-- **Space Grotesk** (`--font-space-grotesk`): Wordmark "ai" only — bold 700
+- **Orbitron** (`--font-orbitron`): Wordmark "NyxWorks.ai" only — bold 700
 
 ### Setup in layout.tsx
 
 ```tsx
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Orbitron } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", weight: ["700"] });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk", weight: ["700"] });
+const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-orbitron", weight: ["700"] });
 
-<html className={`${GeistSans.variable} ${GeistMono.variable} ${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
+<html className={`${GeistSans.variable} ${GeistMono.variable} ${orbitron.variable}`} suppressHydrationWarning>
   <body className="font-sans antialiased">
 ```
 
@@ -355,7 +352,7 @@ import { Search, Settings, User } from "lucide-react";
 - Don't use raw hex colors — always use CSS variables
 - Don't use `rounded-md` or `rounded-sm` — use `rounded-lg` or `rounded-2xl`
 - Don't add `!important` to override styles
-- Don't use Inter or Space Grotesk for anything other than the brand wordmark
+- Don't use Orbitron for anything other than the brand wordmark
 - Don't use opacity-based text colors — use the text-primary/secondary/muted tokens
 - Don't forget `no-underline` on card-wrapping `<a>` tags
 - Don't hardcode theme-specific colors — always use CSS variables so both themes work
@@ -460,11 +457,10 @@ body { background-color: var(--color-bg); color: var(--color-text-primary); }
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Orbitron } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", weight: ["700"] });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk", weight: ["700"] });
+const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-orbitron", weight: ["700"] });
 
 export const metadata: Metadata = {
   title: "My NyxWorks App",
@@ -473,7 +469,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${orbitron.variable}`} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

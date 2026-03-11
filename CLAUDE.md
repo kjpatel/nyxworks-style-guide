@@ -17,7 +17,7 @@ When asked to create a new project using this style guide:
 
 - **Colors**: All via CSS variables (`var(--color-*)`) — never use raw hex
 - **Fonts**: Geist Sans (body) + Geist Mono (code) via `geist` npm package
-- **Brand Wordmark**: "NyxWorks." in Inter Bold + "ai" in Space Grotesk Bold (Electric Violet `#8A5CFF`)
+- **Brand Wordmark**: Orbitron Bold for entire "NyxWorks.ai" — "NyxWorks." in text-primary, "ai" in Electric Violet `#8A5CFF`
 - **Logo**: Theme-aware icons at `public/icon-{dark,light}.png`; use `mix-blend-multiply` on light variant
 - **Rounding**: `rounded-2xl` for cards, `rounded-lg` for buttons/inputs
 - **Spacing**: `py-24 px-6` for sections, `max-w-6xl mx-auto` for content width

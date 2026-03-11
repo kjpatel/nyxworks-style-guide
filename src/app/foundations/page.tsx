@@ -58,18 +58,18 @@ export default function FoundationsPage() {
                 <div className="flex flex-col gap-6">
                   <div className="flex items-center gap-4">
                     <div className="text-3xl font-bold tracking-tight">
-                      <span className="font-[family-name:var(--font-inter)] text-[var(--color-text-primary)]">NyxWorks.</span>
-                      <span className="font-[family-name:var(--font-space-grotesk)] text-[#8A5CFF]">ai</span>
+                      <span className="font-[family-name:var(--font-orbitron)] text-[var(--color-text-primary)]">NyxWorks.</span>
+                      <span className="font-[family-name:var(--font-orbitron)] text-[#8A5CFF]">ai</span>
                     </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-3 text-sm">
                     <div className="p-3 rounded-lg border border-[var(--color-border)]">
                       <p className="text-xs text-[var(--color-text-muted)] mb-1">NyxWorks.</p>
-                      <p className="font-mono text-xs text-[var(--color-accent-light)]">Inter Bold · var(--color-text-primary)</p>
+                      <p className="font-mono text-xs text-[var(--color-accent-light)]">Orbitron Bold · var(--color-text-primary)</p>
                     </div>
                     <div className="p-3 rounded-lg border border-[var(--color-border)]">
                       <p className="text-xs text-[var(--color-text-muted)] mb-1">ai</p>
-                      <p className="font-mono text-xs text-[var(--color-accent-light)]">Space Grotesk Bold · #8A5CFF</p>
+                      <p className="font-mono text-xs text-[var(--color-accent-light)]">Orbitron Bold · #8A5CFF</p>
                     </div>
                   </div>
                 </div>
