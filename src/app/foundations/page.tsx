@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Footer from "@/components/Footer";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import ColorSwatch from "@/components/styleguide/ColorSwatch";
@@ -44,12 +45,75 @@ export default function FoundationsPage() {
     <>
       <div className="py-16 px-6">
         <div className="mx-auto max-w-6xl space-y-20">
-          {/* Colors */}
+          {/* Logo & Wordmark */}
           <AnimateOnScroll>
             <section>
               <h1 className="text-3xl font-bold mb-2">Foundations</h1>
               <div className="w-12 h-1 bg-[var(--color-accent)] rounded-full mb-12" />
 
+              <h2 className="text-2xl font-semibold mb-6">Logo & Wordmark</h2>
+
+              <h3 className="text-lg font-medium text-[var(--color-text-secondary)] mb-4">Wordmark</h3>
+              <div className="p-8 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] mb-8">
+                <div className="flex flex-col gap-6">
+                  <div className="flex items-center gap-4">
+                    <div className="text-3xl font-bold tracking-tight">
+                      <span className="font-[family-name:var(--font-inter)] text-[var(--color-text-primary)]">NyxWorks.</span>
+                      <span className="font-[family-name:var(--font-space-grotesk)] text-[#8A5CFF]">ai</span>
+                    </div>
+                  </div>
+                  <div className="grid sm:grid-cols-2 gap-3 text-sm">
+                    <div className="p-3 rounded-lg border border-[var(--color-border)]">
+                      <p className="text-xs text-[var(--color-text-muted)] mb-1">NyxWorks.</p>
+                      <p className="font-mono text-xs text-[var(--color-accent-light)]">Inter Bold · var(--color-text-primary)</p>
+                    </div>
+                    <div className="p-3 rounded-lg border border-[var(--color-border)]">
+                      <p className="text-xs text-[var(--color-text-muted)] mb-1">ai</p>
+                      <p className="font-mono text-xs text-[var(--color-accent-light)]">Space Grotesk Bold · #8A5CFF</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h3 className="text-lg font-medium text-[var(--color-text-secondary)] mb-4">Logo Assets</h3>
+              <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                <div className="p-6 rounded-xl bg-[#0B0F1A] border border-[var(--color-border)] flex flex-col items-center gap-4">
+                  <div className="flex items-center gap-6">
+                    <div className="flex flex-col items-center gap-2">
+                      <Image src="/icon-dark.png" alt="Icon dark" width={40} height={40} className="rounded-sm" />
+                      <span className="text-[10px] text-[#7B7F8E]">icon-dark.png</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Image src="/logo-dark.png" alt="Logo dark" width={120} height={40} className="rounded-sm" />
+                      <span className="text-[10px] text-[#7B7F8E]">logo-dark.png</span>
+                    </div>
+                  </div>
+                  <span className="text-xs text-[#7B7F8E]">Dark background</span>
+                </div>
+                <div className="p-6 rounded-xl bg-[#F4F3FA] border border-[var(--color-border)] flex flex-col items-center gap-4">
+                  <div className="flex items-center gap-6">
+                    <div className="flex flex-col items-center gap-2">
+                      <Image src="/icon-light.png" alt="Icon light" width={40} height={40} className="rounded-sm mix-blend-multiply" />
+                      <span className="text-[10px] text-[#8B8FA0]">icon-light.png</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Image src="/logo-light.png" alt="Logo light" width={120} height={40} className="rounded-sm mix-blend-multiply" />
+                      <span className="text-[10px] text-[#8B8FA0]">logo-light.png</span>
+                    </div>
+                  </div>
+                  <span className="text-xs text-[#8B8FA0]">Light background</span>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-xl border border-[var(--color-info)]/30 bg-[var(--color-info)]/5 text-sm text-[var(--color-text-secondary)]">
+                Use <code className="font-mono text-[var(--color-accent-light)]">mix-blend-multiply</code> on the light icon variant to eliminate white background artifacts.
+              </div>
+            </section>
+          </AnimateOnScroll>
+
+          {/* Colors */}
+          <AnimateOnScroll>
+            <section>
               <h2 className="text-2xl font-semibold mb-6">Colors</h2>
 
               <h3 className="text-lg font-medium text-[var(--color-text-secondary)] mb-4">Core Palette</h3>
