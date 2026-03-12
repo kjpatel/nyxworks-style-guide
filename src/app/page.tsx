@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
-import { Palette, Component, LayoutGrid, Layers } from "lucide-react";
+import { Palette, Component, LayoutGrid, Layers, Github } from "lucide-react";
 
 const sections = [
   {
@@ -39,10 +39,19 @@ export default function Home() {
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="text-gradient">NyxWorks.ai</span> Style Guide
             </h1>
-            <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mb-16">
+            <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mb-6">
               Design tokens, components, and patterns for the NyxWorks design system.
               Use this as the source of truth for building consistent NyxWorks sub-projects.
             </p>
+            <a
+              href="https://github.com/kjpatel/nyxworks-style-guide"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-light)] transition-colors mb-16"
+            >
+              <Github size={18} />
+              View on GitHub
+            </a>
           </AnimateOnScroll>
 
           <div className="grid md:grid-cols-2 gap-6">
