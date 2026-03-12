@@ -8,8 +8,11 @@ import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import Input from "@/components/ui/Input";
 import { ExternalLink, TrendingUp, Users, DollarSign, Activity, Search, Filter } from "lucide-react";
+import { useState } from "react";
 
 export default function PatternsPage() {
+  const [showFilters, setShowFilters] = useState(false);
+
   return (
     <>
       <div className="py-16 px-6">
@@ -258,23 +261,42 @@ export default function PatternsPage() {
           <Specimen
             title="Search & Filter Bar"
             description="Common pattern for search + filter controls."
-            code={`<div className="flex gap-3">
+            code={`const [showFilters, setShowFilters] = useState(false);
+
+<div className="flex gap-3">
   <div className="relative flex-1">
     <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]" />
     <Input className="pl-10" placeholder="Search..." />
   </div>
-  <Button variant="secondary"><Filter size={16} /> Filters</Button>
-</div>`}
+  <Button variant={showFilters ? "primary" : "secondary"} onClick={() => setShowFilters(!showFilters)}>
+    <Filter size={16} /> Filters
+  </Button>
+</div>
+{showFilters && (
+  <div className="flex flex-wrap gap-2 p-4 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-card)]">
+    <Badge size="sm">Status</Badge>
+    <Badge size="sm">Category</Badge>
+  </div>
+)}`}
           >
-            <div className="flex gap-3 max-w-xl">
-              <div className="relative flex-1">
-                <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]" />
-                <input
-                  className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:ring-2 focus:border-[var(--color-accent)] focus:ring-[var(--color-accent)]/30"
-                  placeholder="Search projects..."
-                />
+            <div className="max-w-xl space-y-3">
+              <div className="flex gap-3">
+                <div className="relative flex-1">
+                  <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]" />
+                  <input
+                    className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:ring-2 focus:border-[var(--color-accent)] focus:ring-[var(--color-accent)]/30"
+                    placeholder="Search projects..."
+                  />
+                </div>
+                <Button variant={showFilters ? "primary" : "secondary"} onClick={() => setShowFilters(!showFilters)}><Filter size={16} /> Filters</Button>
               </div>
-              <Button variant="secondary"><Filter size={16} /> Filters</Button>
+              {showFilters && (
+                <div className="flex flex-wrap gap-2 p-4 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-card)]">
+                  {["Status", "Category", "Date Range"].map((filter) => (
+                    <Badge key={filter} size="sm">{filter}</Badge>
+                  ))}
+                </div>
+              )}
             </div>
           </Specimen>
 

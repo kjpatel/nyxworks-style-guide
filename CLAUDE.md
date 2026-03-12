@@ -45,6 +45,10 @@ When asked to create a new project using this style guide:
 
 UI components in `src/components/ui/` are self-contained and can be copied into new projects. They use only CSS variables and standard Tailwind classes — no external dependencies beyond `lucide-react` and `framer-motion`.
 
+## Environment
+
+This project uses [Direnv](https://direnv.net/) for environment variables. The `.envrc` file is gitignored — never commit it. When setting up a new clone, create `.envrc` manually with the required values.
+
 ## Development
 
 ```bash
