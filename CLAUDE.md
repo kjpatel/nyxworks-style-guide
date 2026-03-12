@@ -55,10 +55,16 @@ npm run build   # static export to out/
 
 ## Deployment
 
-Static export to AWS S3 + CloudFront at styleguide.nyxworks.ai.
+Pushing to `main` triggers automatic deployment via GitHub Actions (`.github/workflows/deploy.yml`). The workflow builds, syncs to S3, and invalidates CloudFront using OIDC — no static AWS keys.
+
+For manual deploys:
 
 ```bash
 npm run build
 aws s3 sync out/ s3://nyxworks-styleguide-site --delete
 aws cloudfront create-invalidation --distribution-id E2G6X9MXKYUVM5 --paths "/*"
 ```
+
+## Important: Keep README.md Up to Date
+
+After making changes to the repo (new features, structural changes, updated conventions, new sections, or deployment changes), always update `README.md` to reflect the current state. The README is the public face of this open-source project — it must stay accurate and complete.

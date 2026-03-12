@@ -92,7 +92,15 @@ Dark mode (default) and light mode, toggled via the header. Theme persists acros
 npm run build    # Outputs static site to out/
 ```
 
-Deployed to AWS S3 + CloudFront.
+### CI/CD
+
+Pushing to `main` automatically deploys via GitHub Actions:
+
+1. Builds the static export
+2. Syncs to S3 (`nyxworks-styleguide-site`)
+3. Invalidates CloudFront
+
+Authentication uses **OIDC** (no static AWS keys) — GitHub's `id-token` is exchanged for temporary credentials via the `nyxworks-github-deploy` IAM role. See [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
 
 ## License
 
