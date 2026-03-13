@@ -36,10 +36,29 @@ When asked to create a new project using this style guide:
 | File | Purpose |
 |------|---------|
 | `.claude/STYLEGUIDE.md` | Full design spec (tokens, recipes, patterns) |
+| `docs/features/README.md` | Feature backlog index and workflow |
+| `docs/features/_template.md` | Canonical template for feature docs |
+| `docs/features/planned/` | Not-started feature specs |
+| `docs/features/in-progress/` | Active implementation specs |
+| `docs/features/shipped/` | Completed feature records |
 | `template/` | Minimal scaffold for new projects |
 | `src/components/ui/` | Reference component implementations |
 | `src/app/globals.css` | Complete CSS with both theme palettes |
 | `src/data/tokens.ts` | Token data as TypeScript objects |
+
+### Feature Docs Workflow (Agent Instructions)
+
+Treat `docs/features/` as the product backlog and delivery log for this repo.
+
+1. Create new work in `docs/features/planned/` using `docs/features/_template.md`.
+2. Move docs to `docs/features/in-progress/` when implementation starts.
+3. Move docs to `docs/features/shipped/` when complete and verified.
+4. Keep `docs/features/README.md` index in sync whenever files are added or moved.
+5. Use real repo paths in "Relevant Files" (for example, `src/components/Header.tsx`, not `components/Header.tsx`).
+6. Write docs for AI coding agents: explicit constraints, acceptance criteria, and copy-paste-safe guidance.
+7. For shipped docs, update content to match the actual implementation (final behavior, final files, and real constraints).
+
+Filename convention for all feature docs: `YYYY-MM-DD-short-slug.md`.
 
 ### Copying Components
 

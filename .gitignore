@@ -6,3 +6,4 @@ next-env.d.ts
 blog-post.md
 .envrc
 .claude/launch.json
+docs/blog/

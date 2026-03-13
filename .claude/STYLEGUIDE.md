@@ -256,6 +256,520 @@ Use standard Tailwind text sizes: `text-xs` through `text-5xl`.
 </div>
 ```
 
+### Divider
+
+```tsx
+import Divider from "@/components/ui/Divider";
+
+// Simple horizontal rule
+<Divider />
+
+// With centered label (e.g., auth form "or" separator)
+<Divider label="or" />
+
+// Custom spacing: "sm" | "md" (default) | "lg"
+<Divider label="continue with" spacing="lg" />
+```
+
+### ProgressBar
+
+```tsx
+import ProgressBar from "@/components/ui/ProgressBar";
+
+// Basic usage
+<ProgressBar value={65} />
+
+// With label and percentage
+<ProgressBar value={72} label="API Requests" showValue />
+
+// Color variants: "accent" (default) | "success" | "warning" | "error" | "info"
+<ProgressBar value={91} color="warning" label="Bandwidth" showValue />
+
+// Sizes: "sm" | "md" (default) | "lg"
+<ProgressBar value={50} size="lg" color="success" />
+```
+
+### DescriptionList
+
+```tsx
+import DescriptionList from "@/components/ui/DescriptionList";
+
+// Horizontal layout (default) — label left, value right
+<DescriptionList items={[
+  { label: "Name", value: "Alice Chen" },
+  { label: "Email", value: "alice@example.com" },
+  { label: "Status", value: <Badge color="success" size="sm">Active</Badge> },
+]} />
+
+// Stacked layout — label above value, 2-column grid
+<DescriptionList layout="stacked" items={[
+  { label: "Plan", value: "Pro" },
+  { label: "Next Payment", value: "Apr 1, 2026" },
+]} />
+```
+
+### RadioGroup
+
+```tsx
+import RadioGroup from "@/components/ui/RadioGroup";
+
+<RadioGroup
+  label="Notification preference"
+  options={[
+    { value: "all", label: "All notifications", description: "Receive everything" },
+    { value: "important", label: "Important only", description: "Critical alerts and mentions" },
+    { value: "none", label: "None" },
+  ]}
+  value={value}
+  onChange={setValue}
+/>
+
+// With error state
+<RadioGroup options={options} value={value} onChange={setValue} error="Please select an option" />
+```
+
+### Combobox
+
+```tsx
+import Combobox from "@/components/ui/Combobox";
+
+<Combobox
+  label="Country"
+  placeholder="Search countries..."
+  options={[
+    { value: "us", label: "United States" },
+    { value: "uk", label: "United Kingdom" },
+    { value: "ca", label: "Canada" },
+  ]}
+  value={value}
+  onChange={setValue}
+/>
+```
+
+### Drawer
+
+```tsx
+import Drawer from "@/components/ui/Drawer";
+
+<Drawer open={open} onClose={() => setOpen(false)} title="Project Details">
+  <p>Drawer body content.</p>
+</Drawer>
+
+// Left side, custom width
+<Drawer open={open} onClose={onClose} title="Menu" side="left" width="max-w-sm">
+  <nav>...</nav>
+</Drawer>
+```
+
+### Stepper
+
+```tsx
+import Stepper from "@/components/ui/Stepper";
+
+// Horizontal (default)
+<Stepper
+  steps={[
+    { label: "Account" },
+    { label: "Workspace" },
+    { label: "Invite" },
+  ]}
+  currentStep={1}
+/>
+
+// Vertical with descriptions
+<Stepper
+  orientation="vertical"
+  steps={[
+    { label: "Create account", description: "Enter your email and password" },
+    { label: "Set up workspace", description: "Configure your team" },
+    { label: "Invite members", description: "Add your team" },
+  ]}
+  currentStep={1}
+/>
+```
+
+### CommandPalette
+
+```tsx
+import CommandPalette from "@/components/ui/CommandPalette";
+import { Home, Settings, User } from "lucide-react";
+
+<CommandPalette
+  open={open}
+  onClose={() => setOpen(false)}
+  items={[
+    { id: "1", label: "Go to Home", icon: <Home size={16} />, group: "Navigation", shortcut: "⌘H", onSelect: () => {} },
+    { id: "2", label: "Settings", icon: <Settings size={16} />, group: "Navigation", shortcut: "⌘,", onSelect: () => {} },
+    { id: "3", label: "Search Users", icon: <User size={16} />, group: "Actions", onSelect: () => {} },
+  ]}
+/>
+```
+
+### Banner
+
+```tsx
+import Banner from "@/components/ui/Banner";
+import { Megaphone } from "lucide-react";
+
+// Info banner (default)
+<Banner icon={<Megaphone size={16} />}>
+  New feature available — check it out!
+</Banner>
+
+// Accent, non-dismissible
+<Banner variant="accent" dismissible={false}>
+  Limited time offer: 20% off all plans.
+</Banner>
+```
+
+### ButtonGroup
+
+```tsx
+import ButtonGroup from "@/components/ui/ButtonGroup";
+
+<ButtonGroup
+  items={[
+    { value: "list", label: "List" },
+    { value: "grid", label: "Grid" },
+    { value: "board", label: "Board" },
+  ]}
+  value={view}
+  onChange={setView}
+/>
+
+// Small size
+<ButtonGroup items={items} value={value} onChange={onChange} size="sm" />
+```
+
+### StatCard
+
+```tsx
+import StatCard from "@/components/ui/StatCard";
+import { DollarSign } from "lucide-react";
+
+<StatCard
+  label="Revenue"
+  value="$48.2K"
+  change="+12%"
+  trend="up"
+  icon={<DollarSign size={16} />}
+/>
+```
+
+### StackedList
+
+```tsx
+import StackedList from "@/components/ui/StackedList";
+import Avatar from "@/components/ui/Avatar";
+import Badge from "@/components/ui/Badge";
+
+<StackedList
+  items={[
+    {
+      id: "1",
+      primary: "Leslie Alexander",
+      secondary: "leslie@example.com",
+      left: <Avatar name="Leslie Alexander" size="sm" />,
+      right: <Badge color="success" size="sm">Active</Badge>,
+      onClick: () => {},
+    },
+  ]}
+/>
+```
+
+### SidebarNav
+
+```tsx
+import SidebarNav from "@/components/ui/SidebarNav";
+import { Home, Settings, User } from "lucide-react";
+
+<SidebarNav
+  sections={[
+    {
+      heading: "General",
+      items: [
+        { id: "dashboard", label: "Dashboard", icon: <Home size={16} /> },
+        { id: "profile", label: "Profile", icon: <User size={16} /> },
+        { id: "settings", label: "Settings", icon: <Settings size={16} /> },
+      ],
+    },
+  ]}
+  activeId={active}
+  onSelect={setActive}
+/>
+```
+
+### PageHeading
+
+```tsx
+import PageHeading from "@/components/ui/PageHeading";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import Button from "@/components/ui/Button";
+
+<PageHeading
+  title="Projects"
+  description="Manage your team's projects"
+  breadcrumb={<Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Projects" }]} />}
+  actions={<Button size="sm">New Project</Button>}
+/>
+```
+
+### Feed
+
+```tsx
+import Feed from "@/components/ui/Feed";
+import { GitCommit, MessageSquare } from "lucide-react";
+
+<Feed
+  items={[
+    { id: "1", icon: <GitCommit size={14} />, content: <><strong>Alice</strong> pushed a commit</>, timestamp: "2 hours ago" },
+    { id: "2", icon: <MessageSquare size={14} />, content: <><strong>Bob</strong> left a comment</>, timestamp: "4 hours ago" },
+  ]}
+/>
+```
+
+### MediaObject
+
+```tsx
+import MediaObject from "@/components/ui/MediaObject";
+import Avatar from "@/components/ui/Avatar";
+
+<MediaObject
+  media={<Avatar name="Alice Chen" size="md" />}
+  title="Alice Chen"
+  description="Left a comment on your pull request."
+  actions={<span className="text-xs text-muted">2h ago</span>}
+/>
+
+// Center-aligned variant
+<MediaObject media={<Icon />} title="DNS propagated" align="center" />
+```
+
+### CardHeading
+
+```tsx
+import CardHeading from "@/components/ui/CardHeading";
+
+// Inside a Card
+<Card>
+  <CardHeading
+    title="Team Members"
+    badge={<Badge size="sm">12</Badge>}
+    actions={<Button size="sm" variant="secondary">Invite</Button>}
+  />
+  <div className="p-6">Card body content</div>
+</Card>
+
+// Without border
+<CardHeading title="Activity" description="Last 7 days" border={false} />
+```
+
+### SectionHeading
+
+```tsx
+import SectionHeading from "@/components/ui/SectionHeading";
+
+<SectionHeading
+  title="Projects"
+  badge={<Badge size="sm">12</Badge>}
+  actions={<Button size="sm">New Project</Button>}
+  tabs={[
+    { label: "All", active: true, onClick: () => setTab("all") },
+    { label: "Active", onClick: () => setTab("active") },
+    { label: "Archived", onClick: () => setTab("archived") },
+  ]}
+/>
+```
+
+### ActionPanel
+
+```tsx
+import ActionPanel from "@/components/ui/ActionPanel";
+
+// Default (right-aligned)
+<ActionPanel>
+  <Button variant="ghost">Cancel</Button>
+  <Button>Save Changes</Button>
+</ActionPanel>
+
+// Card variant with justify-between
+<ActionPanel variant="card" align="between">
+  <span>Enable notifications?</span>
+  <Toggle checked={on} onChange={setOn} />
+</ActionPanel>
+
+// Well variant
+<ActionPanel variant="well" align="right">
+  <Button variant="ghost" size="sm">Discard</Button>
+  <Button size="sm">Publish</Button>
+</ActionPanel>
+```
+
+### FormLayout
+
+```tsx
+import FormLayout from "@/components/ui/FormLayout";
+
+<FormLayout title="Profile" description="Your public profile information.">
+  <Input label="Name" placeholder="Jane Doe" />
+  <Textarea label="Bio" placeholder="Write a short bio..." />
+</FormLayout>
+
+// With top divider (use for second+ sections)
+<FormLayout title="Notifications" description="How you receive alerts." divider>
+  <Toggle label="Email notifications" />
+  <Toggle label="Push notifications" />
+</FormLayout>
+```
+
+### InputGroup
+
+```tsx
+import InputGroup from "@/components/ui/InputGroup";
+import { Search, Mail } from "lucide-react";
+
+// Leading icon
+<InputGroup label="Search" leadingIcon={<Search size={16} />} placeholder="Search..." />
+
+// Leading + trailing addons
+<InputGroup label="Website" leadingAddon="https://" trailingAddon=".com" placeholder="example" />
+
+// With error
+<InputGroup label="Email" leadingIcon={<Mail size={16} />} error="Invalid email" />
+
+// Trailing button (use rounded-none h-full to sit flush inside container)
+<InputGroup label="URL" placeholder="Enter URL" trailingButton={<Button size="sm" className="rounded-none h-full">Go</Button>} />
+```
+
+### Calendar
+
+```tsx
+import Calendar from "@/components/ui/Calendar";
+
+// Basic
+<Calendar selected={date} onSelect={setDate} />
+
+// With events
+<Calendar
+  month={3}
+  year={2026}
+  selected={date}
+  onSelect={setDate}
+  events={[
+    { date: new Date(2026, 2, 10), color: "accent" },
+    { date: new Date(2026, 2, 15), color: "success" },
+    { date: new Date(2026, 2, 20), color: "warning" },
+  ]}
+/>
+```
+
+### GridList
+
+```tsx
+import GridList from "@/components/ui/GridList";
+
+<GridList
+  columns={3}
+  items={[
+    { id: "1", title: "Project Alpha", description: "Design system", image: <div className="h-24 bg-accent/10" />, badge: <Badge size="sm">Live</Badge>, onClick: () => {} },
+    { id: "2", title: "Project Beta", description: "Marketing site", onClick: () => {} },
+  ]}
+/>
+```
+
+### Navbar
+
+```tsx
+import Navbar from "@/components/ui/Navbar";
+
+<Navbar
+  brand={<span className="font-bold">Acme Inc</span>}
+  items={[
+    { id: "dashboard", label: "Dashboard" },
+    { id: "projects", label: "Projects" },
+    { id: "team", label: "Team" },
+  ]}
+  activeId="dashboard"
+  actions={<Button size="sm" variant="secondary">Sign In</Button>}
+  sticky
+/>
+```
+
+### ListContainer
+
+```tsx
+import ListContainer from "@/components/ui/ListContainer";
+
+<ListContainer
+  title="Team Members"
+  actions={<Button size="sm" variant="secondary">Add</Button>}
+  footer="Showing 3 of 12 members"
+>
+  {/* List rows, Feed, or StackedList content */}
+  <div className="divide-y divide-[var(--color-border)]">
+    <div className="px-6 py-3">Row 1</div>
+    <div className="px-6 py-3">Row 2</div>
+  </div>
+</ListContainer>
+```
+
+## Component Selection Guide
+
+Use this decision tree to pick the right component:
+
+| Need | Use | Not |
+|------|-----|-----|
+| Yes/no toggle | **Toggle** | Checkbox (for form agreement), RadioGroup |
+| Agree to terms | **Checkbox** | Toggle |
+| Pick one of 2–5 options | **RadioGroup** | Select, Toggle |
+| Pick from a long list | **Combobox** | Select (no search), RadioGroup |
+| Pick from a short list (<8) | **Select** | Combobox |
+| Full-screen blocking dialog | **Modal** | Drawer |
+| Supplementary panel / detail view | **Drawer** | Modal |
+| Quick-search command overlay | **CommandPalette** | Modal + custom search |
+| Page-level persistent message | **Alert** | Toast |
+| Transient notification | **Toast** | Alert |
+| Multi-step wizard progress | **Stepper** | Tabs, custom numbered circles |
+| Tabbed content switcher | **Tabs** | Stepper |
+| Key-value metadata display | **DescriptionList** | Table, custom grid |
+| Section separator | **Divider** | `<hr>`, custom border-t |
+| Upload/quota/usage meter | **ProgressBar** | custom width bars |
+| Loading placeholder | **Skeleton** | Spinner, custom pulse |
+| Empty data view | **EmptyState** | custom centered text |
+| Top-of-page announcement | **Banner** | Alert (inline), Toast (transient) |
+| View mode switcher (2–4 options) | **ButtonGroup** | Tabs (content sections), RadioGroup (form) |
+| Dashboard metric card | **StatCard** | Card + custom layout |
+| Contact/item list with avatar | **StackedList** | Table (sortable/filterable data) |
+| Vertical section navigation | **SidebarNav** | Tabs (horizontal), Breadcrumb |
+| Page title bar with actions | **PageHeading** | custom flex layout |
+| Activity timeline | **Feed** | StackedList (no timeline connector) |
+| Media + text horizontal layout | **MediaObject** | StackedList, custom flex |
+| Card header with actions | **CardHeading** | PageHeading (page-level) |
+| Section title with tabs/actions | **SectionHeading** | PageHeading, Tabs |
+| Form action bar (save/cancel) | **ActionPanel** | custom flex footer |
+| Two-column form section | **FormLayout** | custom grid, DescriptionList |
+| Input with icons/addons | **InputGroup** | Input (plain) |
+| Calendar date display/selection | **Calendar** | custom grid |
+| Grid of selectable cards | **GridList** | StackedList (vertical), Table |
+| Reusable top navigation | **Navbar** | Header (site-specific) |
+| Card-wrapped list with header | **ListContainer** | Card + StackedList manual |
+
+## Template Reference
+
+Full-page compositions on the `/examples` page. Use these as starting points:
+
+| Template | Composes | When to use |
+|----------|----------|-------------|
+| **Dashboard** | Card, Badge, Table, Tabs | Analytics, admin panels, overview screens |
+| **Settings** | Input, Select, Toggle, Card, Avatar | Simple preference pages |
+| **Landing** | Card, Button, Badge | Marketing pages, product launches |
+| **Auth Flow** | Input, Button, Checkbox, Divider, Card | Sign in, sign up, forgot password |
+| **CRUD** | Table, Badge, Avatar, Dropdown, Pagination, Breadcrumb, DescriptionList, Tabs | Data lists, detail views, admin CRUD |
+| **Account Settings** | Input, Textarea, Toggle, Avatar, DescriptionList, ProgressBar, Divider | Full settings with sidebar nav (profile, security, billing, notifications) |
+| **Onboarding** | Stepper, Card, Input, RadioGroup, Avatar, Badge | Multi-step wizards, setup flows |
+| **Pricing** | Card, Button, Badge, Toggle, Divider | Pricing pages with FAQ |
+| **404 Error** | Button, EmptyState pattern | Error pages, not-found screens |
+
 ## Layout Patterns
 
 ### Page Shell
