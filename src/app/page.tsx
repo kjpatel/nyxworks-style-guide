@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
-import { Palette, Component, LayoutGrid, Layers, Github } from "lucide-react";
+import { Palette, Sparkles, Component, LayoutGrid, Layers, Github } from "lucide-react";
 
 const sections = [
   {
@@ -9,6 +9,12 @@ const sections = [
     description: "Colors, typography, spacing, and icons that form the visual language.",
     href: "/foundations",
     icon: Palette,
+  },
+  {
+    title: "Icons",
+    description: "Browse, search, and customize all 1,703 Lucide icons with live preview.",
+    href: "/icons",
+    icon: Sparkles,
   },
   {
     title: "Components",

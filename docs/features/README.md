@@ -32,3 +32,4 @@ Example: `2026-03-11-dark-mode-toggle.md`
 | shipped | Marketing page components (Hero, CTA, Testimonials, etc.) | `shipped/2026-03-13-marketing-components.md` |
 | shipped | Ecommerce components (ProductCard, Cart, Checkout, etc.) | `shipped/2026-03-13-ecommerce-components.md` |
 | shipped | Wave 3 — Close all Tailwind UI Application UI gaps (10 components) | `shipped/2026-03-13-wave3-application-ui-gaps.md` |
+| shipped | Lucide Icons Browser — browse, search, customize all 1,703 icons | `shipped/2026-03-13-icons-browser.md` |

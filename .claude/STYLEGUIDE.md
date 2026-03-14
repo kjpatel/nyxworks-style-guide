@@ -1230,6 +1230,19 @@ import { Search, Settings, User } from "lucide-react";
 <Search size={16} className="text-[var(--color-text-muted)]" />
 ```
 
+The style guide includes a full **Icons browser** at `/icons` with all 1,703 Lucide icons. It supports search, live customization (size, stroke width, color), and click-to-copy import/JSX snippets.
+
+To render icons dynamically from the full set, use the `icons` map:
+
+```tsx
+import { icons } from "lucide-react";
+import { createElement } from "react";
+
+// icons is a Record<string, ForwardRefExoticComponent> with 1703 entries
+const IconComponent = icons["ArrowRight"];
+createElement(IconComponent, { size: 24, strokeWidth: 2, color: "currentColor" });
+```
+
 ## Do's and Don'ts
 
 ### Do
