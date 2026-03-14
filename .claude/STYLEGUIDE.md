@@ -713,6 +713,359 @@ import ListContainer from "@/components/ui/ListContainer";
 </ListContainer>
 ```
 
+### Hero
+
+```tsx
+import Hero from "@/components/ui/Hero";
+
+// Centered (default)
+<Hero
+  eyebrow="Introducing NyxWorks"
+  title="Build beautiful products faster"
+  subtitle="A modern design system for ambitious teams."
+  actions={<><Button>Get Started</Button><Button variant="secondary">Learn More</Button></>}
+/>
+
+// Split with media
+<Hero
+  variant="split"
+  title="Ship with confidence"
+  subtitle="Everything you need to go from idea to production."
+  actions={<Button>Try Free</Button>}
+  media={<img src="/screenshot.png" alt="App" className="rounded-2xl" />}
+/>
+
+// Variants: "centered" | "split" | "splitReverse" | "withScreenshot"
+// gradient?: boolean — adds gradient effect to title
+```
+
+### FeatureGrid
+
+```tsx
+import FeatureGrid from "@/components/ui/FeatureGrid";
+import { Zap, Shield, BarChart3 } from "lucide-react";
+
+// Grid layout (default)
+<FeatureGrid
+  title="Why teams choose us"
+  subtitle="Built for scale."
+  features={[
+    { icon: <Zap size={20} />, title: "Fast", description: "Optimized for speed." },
+    { icon: <Shield size={20} />, title: "Secure", description: "Enterprise-grade security." },
+    { icon: <BarChart3 size={20} />, title: "Analytics", description: "Real-time insights." },
+  ]}
+/>
+
+// Layouts: "grid" | "alternating" | "bento" | "centered"
+// columns?: 2 | 3 | 4 (default: 3)
+```
+
+### CTASection
+
+```tsx
+import CTASection from "@/components/ui/CTASection";
+
+// Centered (default)
+<CTASection
+  title="Ready to get started?"
+  description="Join thousands of teams already using NyxWorks."
+  actions={<><Button>Start Free Trial</Button><Button variant="secondary">Contact Sales</Button></>}
+/>
+
+// Variants: "centered" | "split" | "banner" | "card"
+// media?: ReactNode — for split variant
+```
+
+### PricingTier
+
+```tsx
+import PricingTier from "@/components/ui/PricingTier";
+
+// Compose 2–3 in a grid for pricing sections
+<div className="grid md:grid-cols-3 gap-6">
+  <PricingTier
+    name="Starter"
+    price="$9"
+    priceSuffix="/month"
+    description="For individuals."
+    features={[
+      { text: "5 projects", included: true },
+      { text: "Basic analytics", included: true },
+      { text: "Priority support", included: false },
+    ]}
+    cta={<Button variant="secondary" className="w-full">Choose Starter</Button>}
+  />
+  <PricingTier
+    name="Pro"
+    price="$29"
+    priceSuffix="/month"
+    featured
+    badge={<Badge>Popular</Badge>}
+    features={[
+      { text: "Unlimited projects", included: true },
+      { text: "Advanced analytics", included: true },
+      { text: "Priority support", included: true },
+    ]}
+    cta={<Button className="w-full">Choose Pro</Button>}
+  />
+</div>
+```
+
+### TestimonialCard
+
+```tsx
+import TestimonialCard from "@/components/ui/TestimonialCard";
+
+<TestimonialCard
+  quote="NyxWorks transformed how we build products."
+  author="Jane Doe"
+  role="CTO, Acme Inc"
+  avatar={<Avatar name="Jane Doe" size="md" />}
+/>
+
+// Variants: "default" | "featured" | "minimal"
+// logo?: ReactNode — company logo
+```
+
+### LogoCloud
+
+```tsx
+import LogoCloud from "@/components/ui/LogoCloud";
+
+<LogoCloud
+  title="Trusted by innovative teams"
+  logos={[
+    { content: <img src="/logo1.svg" alt="Acme" className="h-8" /> },
+    { content: <img src="/logo2.svg" alt="Globex" className="h-8" /> },
+  ]}
+/>
+
+// layout?: "row" (default) | "grid"
+// columns?: number (for grid layout)
+```
+
+### Newsletter
+
+```tsx
+import Newsletter from "@/components/ui/Newsletter";
+
+<Newsletter
+  title="Stay in the loop"
+  description="Get updates on new features and releases."
+  placeholder="you@example.com"
+  buttonLabel="Subscribe"
+  onSubmit={(email) => console.log(email)}
+/>
+
+// Variants: "centered" (default) | "inline" | "card"
+```
+
+### FAQ
+
+```tsx
+import FAQ from "@/components/ui/FAQ";
+
+<FAQ
+  title="Frequently Asked Questions"
+  items={[
+    { question: "How does billing work?", answer: "We bill monthly based on usage." },
+    { question: "Can I cancel anytime?", answer: "Yes, cancel anytime with no penalty." },
+  ]}
+/>
+
+// multiple?: boolean — allow multiple items open (default: false)
+// Accordion animation uses CSS grid-rows-[0fr]/[1fr]
+```
+
+### TeamMember
+
+```tsx
+import TeamMember from "@/components/ui/TeamMember";
+
+<TeamMember
+  name="Alice Chen"
+  role="Lead Designer"
+  avatar={<Avatar name="Alice Chen" size="lg" />}
+  bio="Alice leads design across all products."
+  socials={[
+    { icon: <Twitter size={14} />, href: "#" },
+    { icon: <Linkedin size={14} />, href: "#" },
+  ]}
+/>
+
+// Variants: "card" (default) | "compact" | "horizontal"
+```
+
+### BlogCard
+
+```tsx
+import BlogCard from "@/components/ui/BlogCard";
+
+<BlogCard
+  title="Announcing NyxWorks 2.0"
+  excerpt="The biggest update yet with 63 components."
+  image={<img src="/blog.jpg" alt="Blog" className="w-full h-full object-cover" />}
+  author="Alice Chen"
+  date="Mar 13, 2026"
+  category="Product"
+  href="/blog/announcing-2"
+/>
+
+// Variants: "vertical" (default) | "horizontal" | "featured"
+```
+
+### FlyoutMenu
+
+```tsx
+import FlyoutMenu from "@/components/ui/FlyoutMenu";
+import { Home, Settings } from "lucide-react";
+
+<FlyoutMenu
+  trigger={<Button variant="secondary">Menu</Button>}
+  items={[
+    { id: "home", label: "Home", description: "Go to homepage", icon: <Home size={16} />, href: "/" },
+    { id: "settings", label: "Settings", description: "Manage preferences", icon: <Settings size={16} />, href: "/settings" },
+  ]}
+  footer={<a href="/help" className="text-sm text-accent">Need help?</a>}
+/>
+
+// align?: "left" (default) | "right"
+// width?: "sm" | "md" (default) | "lg"
+// Click-outside closes via useRef + mousedown handler
+```
+
+### ProductCard
+
+```tsx
+import ProductCard from "@/components/ui/ProductCard";
+
+// Vertical (default) — for product grids
+<ProductCard
+  image={<img src="/product.jpg" alt="Product" className="w-full h-full object-cover" />}
+  title="Wireless Headphones"
+  description="Premium sound quality."
+  price="$79.99"
+  originalPrice="$99.99"
+  rating={4.5}
+  reviewCount={128}
+  badge={<Badge color="error" size="sm">Sale</Badge>}
+  action={<Button size="sm" className="w-full mt-3">Add to Cart</Button>}
+  href="/products/headphones"
+/>
+
+// Variants: "vertical" (default) | "horizontal" | "compact"
+// Includes inline StarRating helper (filled stars use --color-warning)
+```
+
+### Rating
+
+```tsx
+import Rating from "@/components/ui/Rating";
+
+// Readonly
+<Rating value={4.5} reviewCount={128} />
+
+// Interactive
+<Rating value={rating} onChange={setRating} />
+
+// Sizes: "sm" (14px) | "md" (18px, default) | "lg" (24px)
+// showValue?: boolean — show numeric value next to stars
+```
+
+### PriceTag
+
+```tsx
+import PriceTag from "@/components/ui/PriceTag";
+
+// Sale price with original
+<PriceTag price="$29.99" originalPrice="$49.99" saleBadge="40% off" />
+
+// Sizes: "sm" | "md" (default) | "lg"
+// currency?: string — prepended to price
+```
+
+### CartItem
+
+```tsx
+import CartItem from "@/components/ui/CartItem";
+
+<CartItem
+  image={<img src="/item.jpg" alt="Item" className="w-full h-full object-cover" />}
+  title="Wireless Headphones"
+  variant="Black / Large"
+  price="$79.99"
+  quantity={2}
+  onQuantityChange={(qty) => setQty(qty)}
+  onRemove={() => removeItem()}
+/>
+
+// Horizontal layout with Minus/Plus quantity controls
+// Min quantity enforced at 1
+```
+
+### OrderSummary
+
+```tsx
+import OrderSummary from "@/components/ui/OrderSummary";
+
+<OrderSummary
+  title="Order Summary"
+  lines={[
+    { label: "Subtotal", value: "$159.98" },
+    { label: "Shipping", value: "$9.99" },
+    { label: "Tax", value: "$12.80" },
+    { label: "Total", value: "$182.77", isTotal: true },
+  ]}
+  action={<Button className="w-full">Checkout</Button>}
+/>
+
+// promo?: ReactNode — promo code input area
+// isTotal rows get border-t separator + bold text
+```
+
+### CategoryFilter
+
+```tsx
+import CategoryFilter from "@/components/ui/CategoryFilter";
+
+<CategoryFilter
+  groups={[
+    { label: "Category", options: [
+      { value: "electronics", label: "Electronics", count: 24 },
+      { value: "clothing", label: "Clothing", count: 18 },
+    ]},
+    { label: "Color", options: [
+      { value: "black", label: "Black", count: 12 },
+      { value: "white", label: "White", count: 8 },
+    ]},
+  ]}
+  selected={filters}
+  onChange={setFilters}
+/>
+
+// Collapsible groups with ChevronDown toggle
+// Checkbox-based multi-select per group
+```
+
+### PromoSection
+
+```tsx
+import PromoSection from "@/components/ui/PromoSection";
+import { Truck, RotateCcw, Shield } from "lucide-react";
+
+<PromoSection
+  items={[
+    { icon: <Truck size={20} />, title: "Free Shipping", description: "On orders over $50" },
+    { icon: <RotateCcw size={20} />, title: "30-Day Returns", description: "Hassle-free returns" },
+    { icon: <Shield size={20} />, title: "Secure Checkout", description: "256-bit encryption" },
+  ]}
+/>
+
+// layout?: "row" (default) | "grid" | "banner"
+// bg?: "transparent" (default) | "card" | "accent"
+// "accent" bg uses gradient from accent to accent-dark
+```
+
 ## Component Selection Guide
 
 Use this decision tree to pick the right component:
@@ -753,6 +1106,24 @@ Use this decision tree to pick the right component:
 | Grid of selectable cards | **GridList** | StackedList (vertical), Table |
 | Reusable top navigation | **Navbar** | Header (site-specific) |
 | Card-wrapped list with header | **ListContainer** | Card + StackedList manual |
+| Marketing hero / landing header | **Hero** | custom flex layout |
+| Feature showcase / benefits grid | **FeatureGrid** | manual Card grid |
+| Call-to-action banner | **CTASection** | custom section |
+| Pricing comparison cards | **PricingTier** (compose in grid) | manual Card layout |
+| Customer quotes / social proof | **TestimonialCard** | Card + custom quote |
+| Partner / client logo strip | **LogoCloud** | manual flex + img |
+| Email capture form | **Newsletter** | Input + Button custom |
+| Expandable Q&A list | **FAQ** | custom accordion |
+| Team / people cards | **TeamMember** | Card + Avatar custom |
+| Article / blog preview | **BlogCard** | Card + custom layout |
+| Rich dropdown navigation | **FlyoutMenu** | Dropdown (simple items only) |
+| Ecommerce product display | **ProductCard** | Card + custom layout |
+| Star rating display / input | **Rating** | custom star icons |
+| Price with sale/original | **PriceTag** | custom text |
+| Cart line item with qty controls | **CartItem** | custom flex layout |
+| Checkout totals / order breakdown | **OrderSummary** | DescriptionList, Table |
+| Faceted filter sidebar | **CategoryFilter** | Checkbox + custom groups |
+| Incentive / benefit strip | **PromoSection** | custom flex icons |
 
 ## Template Reference
 
@@ -769,6 +1140,12 @@ Full-page compositions on the `/examples` page. Use these as starting points:
 | **Onboarding** | Stepper, Card, Input, RadioGroup, Avatar, Badge | Multi-step wizards, setup flows |
 | **Pricing** | Card, Button, Badge, Toggle, Divider | Pricing pages with FAQ |
 | **404 Error** | Button, EmptyState pattern | Error pages, not-found screens |
+| **SaaS Landing** | Hero, LogoCloud, FeatureGrid, StatCard, TestimonialCard, CTASection, FAQ | Marketing pages, SaaS homepages |
+| **Product Launch** | Hero (withScreenshot), FeatureGrid (alternating), PricingTier, CTASection, Newsletter | Product launches, feature announcements |
+| **Blog List** | Hero (minimal), BlogCard grid, Pagination | Blog index pages, article listings |
+| **Product Catalog** | CategoryFilter sidebar, ProductCard grid, Pagination | Ecommerce category pages, product listings |
+| **Shopping Cart** | CartItem list, OrderSummary, PromoSection | Cart pages, checkout flows |
+| **Product Detail** | ProductCard (large), Rating, FeatureGrid, TestimonialCard | Product detail pages, product overviews |
 
 ## Layout Patterns
 

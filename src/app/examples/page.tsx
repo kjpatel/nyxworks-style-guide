@@ -23,7 +23,23 @@ import DescriptionList from "@/components/ui/DescriptionList";
 import RadioGroup from "@/components/ui/RadioGroup";
 import Stepper from "@/components/ui/Stepper";
 import Textarea from "@/components/ui/Textarea";
-import { DollarSign, Users, TrendingUp, BarChart3, ArrowRight, Check, Star, Zap, Shield, Search, Lock, Mail, ChevronDown, MoreHorizontal, Eye, CreditCard, Bell, User, Settings, Key, AlertTriangle, Home } from "lucide-react";
+import Hero from "@/components/ui/Hero";
+import FeatureGrid from "@/components/ui/FeatureGrid";
+import CTASection from "@/components/ui/CTASection";
+import PricingTier from "@/components/ui/PricingTier";
+import TestimonialCard from "@/components/ui/TestimonialCard";
+import LogoCloud from "@/components/ui/LogoCloud";
+import Newsletter from "@/components/ui/Newsletter";
+import FAQ from "@/components/ui/FAQ";
+import BlogCard from "@/components/ui/BlogCard";
+import ProductCard from "@/components/ui/ProductCard";
+import Rating from "@/components/ui/Rating";
+import CartItem from "@/components/ui/CartItem";
+import OrderSummary from "@/components/ui/OrderSummary";
+import CategoryFilter from "@/components/ui/CategoryFilter";
+import PromoSection from "@/components/ui/PromoSection";
+import StatCard from "@/components/ui/StatCard";
+import { DollarSign, Users, TrendingUp, BarChart3, ArrowRight, Check, Star, Zap, Shield, Search, Lock, Mail, ChevronDown, MoreHorizontal, Eye, CreditCard, Bell, User, Settings, Key, AlertTriangle, Home, Layers, Rocket, Globe, Image as ImageIcon, Package, Truck, RotateCcw } from "lucide-react";
 
 function DashboardExample() {
   return (
@@ -832,6 +848,277 @@ function ErrorPageExample() {
   );
 }
 
+function SaaSLandingExample() {
+  return (
+    <div className="space-y-0 -m-6 overflow-hidden rounded-2xl">
+      <Hero
+        eyebrow={<Badge color="accent">Now in Beta</Badge>}
+        title="Ship products 10x faster"
+        subtitle="The all-in-one platform for modern SaaS teams to build, deploy, and scale."
+        actions={<><Button size="lg">Start Free Trial</Button><Button size="lg" variant="secondary">Watch Demo</Button></>}
+        gradient
+      />
+      <LogoCloud
+        title="Trusted by 1,000+ companies"
+        logos={[
+          { content: <span className="text-lg font-bold text-[var(--color-text-primary)]">Acme</span> },
+          { content: <span className="text-lg font-bold text-[var(--color-text-primary)]">Globex</span> },
+          { content: <span className="text-lg font-bold text-[var(--color-text-primary)]">Initech</span> },
+          { content: <span className="text-lg font-bold text-[var(--color-text-primary)]">Hooli</span> },
+          { content: <span className="text-lg font-bold text-[var(--color-text-primary)]">Pied Piper</span> },
+        ]}
+        className="pb-12"
+      />
+      <FeatureGrid
+        title="Everything you need"
+        subtitle="Powerful primitives that compose into any interface."
+        features={[
+          { icon: <Zap size={24} />, title: "Lightning Fast", description: "Sub-100ms response times with edge computing." },
+          { icon: <Shield size={24} />, title: "Enterprise Security", description: "SOC2, HIPAA, and GDPR compliance built-in." },
+          { icon: <BarChart3 size={24} />, title: "Real-time Analytics", description: "Track every metric that matters to your business." },
+          { icon: <Layers size={24} />, title: "Composable", description: "Mix and match over 60 components freely." },
+          { icon: <Rocket size={24} />, title: "One-click Deploy", description: "Ship to production in seconds, not hours." },
+          { icon: <Globe size={24} />, title: "Global CDN", description: "Serve content from 200+ edge locations." },
+        ]}
+        columns={3}
+      />
+      <div className="px-6 py-12">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+          <StatCard label="Components" value="63" change="+18" icon={<Layers size={16} />} />
+          <StatCard label="Companies" value="1,200+" change="+32%" icon={<Users size={16} />} />
+          <StatCard label="Uptime" value="99.99%" icon={<Shield size={16} />} />
+          <StatCard label="Deploy Speed" value="<2s" icon={<Rocket size={16} />} />
+        </div>
+      </div>
+      <div className="px-6 py-12">
+        <h2 className="text-2xl font-bold text-[var(--color-text-primary)] text-center mb-8">What people say</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          <TestimonialCard quote="Cut our development time in half." author="Sarah Chen" role="CTO, TechCo" avatar={<Avatar name="SC" size="sm" />} />
+          <TestimonialCard quote="Best design system we&apos;ve ever used." author="Alex Rivera" role="Lead Designer" avatar={<Avatar name="AR" size="sm" />} variant="featured" />
+          <TestimonialCard quote="The dark mode support is incredible." author="Maria Lopez" role="Frontend Engineer" avatar={<Avatar name="ML" size="sm" />} />
+        </div>
+      </div>
+      <CTASection variant="banner" title="Ready to get started?" description="Start building for free — no credit card required." actions={<Button className="bg-white text-[var(--color-accent)] hover:bg-white/90">Sign Up Free</Button>} />
+      <div className="py-12">
+        <FAQ
+          title="Frequently Asked Questions"
+          items={[
+            { question: "Is there a free plan?", answer: "Yes! Our Starter plan is free forever with up to 5 projects." },
+            { question: "Can I cancel anytime?", answer: "Absolutely. Cancel your subscription at any time, no questions asked." },
+            { question: "Do you offer enterprise pricing?", answer: "Yes, contact our sales team for custom enterprise plans with SLA guarantees." },
+          ]}
+        />
+      </div>
+    </div>
+  );
+}
+
+function ProductLaunchExample() {
+  return (
+    <div className="space-y-0 -m-6 overflow-hidden rounded-2xl">
+      <Hero
+        variant="withScreenshot"
+        eyebrow={<Badge color="accent">Just Launched</Badge>}
+        title="Meet NyxWorks 2.0"
+        subtitle="63 components, 15 templates, dark mode, and full Tailwind UI coverage."
+        actions={<><Button size="lg">Get Started</Button><Button size="lg" variant="ghost">View Components →</Button></>}
+        media={<div className="aspect-video bg-[var(--color-bg-card-hover)] flex items-center justify-center"><ImageIcon size={48} className="text-[var(--color-text-muted)]" /></div>}
+        gradient
+      />
+      <FeatureGrid
+        layout="alternating"
+        title="What&apos;s new"
+        features={[
+          { title: "Marketing Components", description: "Hero sections, pricing tiers, testimonials, FAQ accordions, and more — everything you need for landing pages.", media: <div className="aspect-video bg-[var(--color-bg-card-hover)] flex items-center justify-center"><Rocket size={32} className="text-[var(--color-text-muted)]" /></div> },
+          { title: "Ecommerce Suite", description: "Product cards, cart items, order summaries, category filters, and ratings — build a complete storefront.", media: <div className="aspect-video bg-[var(--color-bg-card-hover)] flex items-center justify-center"><Package size={32} className="text-[var(--color-text-muted)]" /></div> },
+        ]}
+      />
+      <div className="px-6 py-16">
+        <h2 className="text-2xl font-bold text-center mb-8 text-[var(--color-text-primary)]">Simple, transparent pricing</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          <PricingTier name="Hobby" price="$0" priceSuffix="/mo" description="For side projects" features={[{text:"5 projects"},{text:"Community support"},{text:"Basic components"}]} cta={<Button variant="secondary" className="w-full">Get Started</Button>} />
+          <PricingTier name="Pro" price="$29" priceSuffix="/mo" description="For teams" featured badge={<Badge color="accent" size="sm">Popular</Badge>} features={[{text:"Unlimited projects"},{text:"Priority support"},{text:"All components"},{text:"Templates"}]} cta={<Button className="w-full">Get Started</Button>} />
+          <PricingTier name="Enterprise" price="$99" priceSuffix="/mo" description="Custom solutions" features={[{text:"Everything in Pro"},{text:"SSO & SAML"},{text:"Dedicated support"},{text:"SLA guarantee"}]} cta={<Button variant="secondary" className="w-full">Contact Sales</Button>} />
+        </div>
+      </div>
+      <CTASection variant="card" title="Start building today" description="Join thousands of developers shipping faster." actions={<><Button size="lg">Sign Up Free</Button><Button size="lg" variant="ghost">Learn More</Button></>} />
+      <div className="py-12 px-6">
+        <Newsletter variant="centered" title="Get launch updates" description="Be the first to know about new features and releases." />
+      </div>
+    </div>
+  );
+}
+
+function BlogListExample() {
+  return (
+    <div className="space-y-8">
+      <div>
+        <h3 className="text-xl font-bold text-[var(--color-text-primary)]">Blog</h3>
+        <p className="text-sm text-[var(--color-text-muted)] mt-1">Latest articles and tutorials</p>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { title: "Getting Started with NyxWorks", category: "Tutorial", date: "Mar 10, 2026", author: "Jane Smith" },
+          { title: "Dark Mode Best Practices", category: "Design", date: "Mar 8, 2026", author: "Alex Kim" },
+          { title: "Building Accessible Components", category: "Engineering", date: "Mar 5, 2026", author: "Sam Lee" },
+          { title: "Component Architecture Patterns", category: "Engineering", date: "Mar 3, 2026", author: "Jane Smith" },
+          { title: "CSS Variables vs Tailwind Config", category: "Tutorial", date: "Feb 28, 2026", author: "Alex Kim" },
+          { title: "Designing for Scale", category: "Design", date: "Feb 25, 2026", author: "Sam Lee" },
+        ].map((post) => (
+          <BlogCard
+            key={post.title}
+            title={post.title}
+            excerpt="A brief introduction to the topic and what you&apos;ll learn in this article."
+            image={<div className="w-full h-full bg-[var(--color-bg-card-hover)] flex items-center justify-center"><ImageIcon size={24} className="text-[var(--color-text-muted)]" /></div>}
+            category={<Badge color="accent" size="sm">{post.category}</Badge>}
+            author={post.author}
+            date={post.date}
+            href="#"
+          />
+        ))}
+      </div>
+      <div className="flex justify-center">
+        <Pagination page={1} totalPages={5} onChange={() => {}} />
+      </div>
+    </div>
+  );
+}
+
+function ProductCatalogExample() {
+  const [filters, setFilters] = useState<Record<string, string[]>>({ Category: ["shoes"] });
+  return (
+    <div className="flex gap-8">
+      <div className="hidden md:block w-56 shrink-0">
+        <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-4">Filters</h4>
+        <CategoryFilter
+          groups={[
+            { label: "Category", options: [{ value: "shoes", label: "Shoes", count: 42 }, { value: "clothing", label: "Clothing", count: 67 }, { value: "accessories", label: "Accessories", count: 23 }] },
+            { label: "Color", options: [{ value: "black", label: "Black", count: 18 }, { value: "white", label: "White", count: 12 }, { value: "blue", label: "Blue", count: 8 }] },
+            { label: "Size", options: [{ value: "s", label: "Small" }, { value: "m", label: "Medium" }, { value: "l", label: "Large" }] },
+          ]}
+          selected={filters}
+          onChange={setFilters}
+        />
+      </div>
+      <div className="flex-1">
+        <div className="flex items-center justify-between mb-4">
+          <p className="text-sm text-[var(--color-text-muted)]">Showing 1–6 of 42 results</p>
+          <Select options={[{ label: "Newest", value: "newest" }, { label: "Price: Low", value: "price-asc" }, { label: "Price: High", value: "price-desc" }]} />
+        </div>
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+          {[
+            { title: "Classic T-Shirt", price: "$35", rating: 4.5, reviews: 128 },
+            { title: "Running Shoes", price: "$120", rating: 4.8, reviews: 256, badge: "New" },
+            { title: "Leather Wallet", price: "$65", originalPrice: "$85", rating: 4.2, reviews: 89, badge: "Sale" },
+            { title: "Denim Jacket", price: "$90", rating: 4.6, reviews: 167 },
+            { title: "Canvas Backpack", price: "$55", rating: 4.4, reviews: 203 },
+            { title: "Wool Scarf", price: "$28", originalPrice: "$40", rating: 4.1, reviews: 54, badge: "Sale" },
+          ].map((p) => (
+            <ProductCard
+              key={p.title}
+              title={p.title}
+              price={p.price}
+              originalPrice={p.originalPrice}
+              rating={p.rating}
+              reviewCount={p.reviews}
+              image={<div className="w-full h-full bg-[var(--color-bg-card-hover)] flex items-center justify-center"><Package size={24} className="text-[var(--color-text-muted)]" /></div>}
+              badge={p.badge ? <Badge color={p.badge === "Sale" ? "error" : "accent"} size="sm">{p.badge}</Badge> : undefined}
+              action={<Button size="sm" className="w-full mt-2">Add to Cart</Button>}
+            />
+          ))}
+        </div>
+        <div className="flex justify-center mt-6">
+          <Pagination page={1} totalPages={7} onChange={() => {}} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ShoppingCartExample() {
+  const [qty1, setQty1] = useState(2);
+  const [qty2, setQty2] = useState(1);
+  return (
+    <div className="space-y-6">
+      <h3 className="text-xl font-bold text-[var(--color-text-primary)]">Shopping Cart</h3>
+      <PromoSection
+        bg="card"
+        items={[
+          { icon: <Truck size={18} />, title: "Free Shipping", description: "On orders over $50" },
+          { icon: <RotateCcw size={18} />, title: "Easy Returns", description: "30-day return policy" },
+          { icon: <Lock size={18} />, title: "Secure Checkout", description: "SSL encrypted" },
+        ]}
+      />
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2 divide-y divide-[var(--color-border)]">
+          <CartItem title="Classic T-Shirt" variant="Black / Medium" price="$35.00" quantity={qty1} onQuantityChange={setQty1} onRemove={() => {}} image={<div className="w-full h-full bg-[var(--color-bg-card-hover)] flex items-center justify-center"><Package size={20} className="text-[var(--color-text-muted)]" /></div>} />
+          <CartItem title="Running Shoes" variant="White / Size 10" price="$120.00" quantity={qty2} onQuantityChange={setQty2} onRemove={() => {}} image={<div className="w-full h-full bg-[var(--color-bg-card-hover)] flex items-center justify-center"><Package size={20} className="text-[var(--color-text-muted)]" /></div>} />
+        </div>
+        <div>
+          <OrderSummary
+            lines={[
+              { label: "Subtotal", value: "$190.00" },
+              { label: "Shipping", value: "Free" },
+              { label: "Tax", value: "$15.20" },
+              { label: "Total", value: "$205.20", isTotal: true },
+            ]}
+            action={<Button className="w-full">Proceed to Checkout</Button>}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProductDetailExample() {
+  return (
+    <div className="space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="aspect-square rounded-2xl bg-[var(--color-bg-card-hover)] border border-[var(--color-border)] flex items-center justify-center">
+          <Package size={64} className="text-[var(--color-text-muted)]" />
+        </div>
+        <div className="space-y-4">
+          <Badge color="accent" size="sm">New Arrival</Badge>
+          <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">Premium Leather Jacket</h3>
+          <Rating value={4.7} showValue reviewCount="203 reviews" />
+          <div className="flex items-baseline gap-2">
+            <span className="text-3xl font-bold text-[var(--color-text-primary)]">$249</span>
+            <span className="text-lg text-[var(--color-text-muted)] line-through">$329</span>
+            <Badge color="error" size="sm">24% off</Badge>
+          </div>
+          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+            Crafted from premium full-grain leather with a buttery-soft interior lining. Features a classic motorcycle silhouette with modern tailoring.
+          </p>
+          <Divider />
+          <div className="space-y-3">
+            <Select label="Size" options={[{ label: "Small", value: "s" }, { label: "Medium", value: "m" }, { label: "Large", value: "l" }, { label: "X-Large", value: "xl" }]} />
+            <div className="flex gap-3">
+              <Button className="flex-1">Add to Cart</Button>
+              <Button variant="secondary">♡</Button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <FeatureGrid
+        title="Product Features"
+        features={[
+          { icon: <Shield size={20} />, title: "Full-Grain Leather", description: "Premium quality that ages beautifully over time." },
+          { icon: <Zap size={20} />, title: "YKK Zippers", description: "Smooth, durable zippers built to last." },
+          { icon: <Layers size={20} />, title: "Silk Lining", description: "Luxurious interior for all-day comfort." },
+        ]}
+        columns={3}
+      />
+      <div>
+        <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">Customer Reviews</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <TestimonialCard variant="minimal" quote="Best jacket I&apos;ve ever owned. The leather quality is incredible." author="Mike Johnson" role="Verified Buyer" avatar={<Avatar name="MJ" size="sm" />} />
+          <TestimonialCard variant="minimal" quote="Fits perfectly and looks even better in person." author="Emily Davis" role="Verified Buyer" avatar={<Avatar name="ED" size="sm" />} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ExamplesPage() {
   return (
     <>
@@ -922,6 +1209,76 @@ export default function ExamplesPage() {
               <h2 className="text-2xl font-semibold mb-6">404 Error Page</h2>
               <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6">
                 <ErrorPageExample />
+              </div>
+            </section>
+          </AnimateOnScroll>
+
+          {/* Marketing Templates */}
+          <AnimateOnScroll>
+            <div className="pt-4">
+              <h2 className="text-xl font-bold text-[var(--color-text-primary)] mb-1">Marketing Templates</h2>
+              <p className="text-sm text-[var(--color-text-muted)]">Landing pages, product launches, and blog layouts.</p>
+            </div>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll>
+            <section>
+              <h2 className="text-2xl font-semibold mb-6">SaaS Landing Page</h2>
+              <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-card)] overflow-hidden">
+                <SaaSLandingExample />
+              </div>
+            </section>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll>
+            <section>
+              <h2 className="text-2xl font-semibold mb-6">Product Launch Page</h2>
+              <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-card)] overflow-hidden">
+                <ProductLaunchExample />
+              </div>
+            </section>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll>
+            <section>
+              <h2 className="text-2xl font-semibold mb-6">Blog List</h2>
+              <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6">
+                <BlogListExample />
+              </div>
+            </section>
+          </AnimateOnScroll>
+
+          {/* Ecommerce Templates */}
+          <AnimateOnScroll>
+            <div className="pt-4">
+              <h2 className="text-xl font-bold text-[var(--color-text-primary)] mb-1">Ecommerce Templates</h2>
+              <p className="text-sm text-[var(--color-text-muted)]">Product catalog, shopping cart, and product detail pages.</p>
+            </div>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll>
+            <section>
+              <h2 className="text-2xl font-semibold mb-6">Product Catalog</h2>
+              <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6">
+                <ProductCatalogExample />
+              </div>
+            </section>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll>
+            <section>
+              <h2 className="text-2xl font-semibold mb-6">Shopping Cart</h2>
+              <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6">
+                <ShoppingCartExample />
+              </div>
+            </section>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll>
+            <section>
+              <h2 className="text-2xl font-semibold mb-6">Product Detail</h2>
+              <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6">
+                <ProductDetailExample />
               </div>
             </section>
           </AnimateOnScroll>

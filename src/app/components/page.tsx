@@ -49,7 +49,25 @@ import Calendar from "@/components/ui/Calendar";
 import GridList from "@/components/ui/GridList";
 import Navbar from "@/components/ui/Navbar";
 import ListContainer from "@/components/ui/ListContainer";
-import { Search, Settings, User, FileText, Home, Megaphone, DollarSign, Users, GitCommit, MessageSquare, Check as CheckIcon, Mail, Globe, FolderOpen, Bell, Image as ImageIcon, Calendar as CalendarIcon } from "lucide-react";
+import Hero from "@/components/ui/Hero";
+import FeatureGrid from "@/components/ui/FeatureGrid";
+import CTASection from "@/components/ui/CTASection";
+import PricingTier from "@/components/ui/PricingTier";
+import TestimonialCard from "@/components/ui/TestimonialCard";
+import LogoCloud from "@/components/ui/LogoCloud";
+import Newsletter from "@/components/ui/Newsletter";
+import FAQ from "@/components/ui/FAQ";
+import TeamMember from "@/components/ui/TeamMember";
+import BlogCard from "@/components/ui/BlogCard";
+import FlyoutMenu from "@/components/ui/FlyoutMenu";
+import ProductCard from "@/components/ui/ProductCard";
+import Rating from "@/components/ui/Rating";
+import PriceTag from "@/components/ui/PriceTag";
+import CartItem from "@/components/ui/CartItem";
+import OrderSummary from "@/components/ui/OrderSummary";
+import CategoryFilter from "@/components/ui/CategoryFilter";
+import PromoSection from "@/components/ui/PromoSection";
+import { Search, Settings, User, FileText, Home, Megaphone, DollarSign, Users, GitCommit, MessageSquare, Check as CheckIcon, Mail, Globe, FolderOpen, Bell, Image as ImageIcon, Calendar as CalendarIcon, Zap, Shield, BarChart3, Layers, Rocket, Truck, RotateCcw, Lock, Twitter, Linkedin, Github, ChevronDown, Star, ShoppingCart, Package } from "lucide-react";
 
 export default function ComponentsPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -66,6 +84,9 @@ export default function ComponentsPage() {
   const [sidebarActive, setSidebarActive] = useState("dashboard");
   const [calendarSelected, setCalendarSelected] = useState<Date | undefined>(new Date(2026, 2, 13));
   const [sectionTab, setSectionTab] = useState("all");
+  const [ratingValue, setRatingValue] = useState(0);
+  const [cartQty, setCartQty] = useState(2);
+  const [filters, setFilters] = useState<Record<string, string[]>>({ Category: ["shoes"] });
 
   return (
     <>
@@ -1154,6 +1175,546 @@ export default function ComponentsPage() {
                 actions={<Button size="sm" variant="secondary">Sign In</Button>}
               />
             </div>
+          </Specimen>
+
+          {/* ── Marketing Components ─────────────────────────── */}
+          <div className="pt-8">
+            <h2 className="text-xl font-bold text-[var(--color-text-primary)] mb-1">Marketing Components</h2>
+            <p className="text-sm text-[var(--color-text-muted)] mb-6">Hero sections, features, pricing, testimonials, and more.</p>
+          </div>
+
+          {/* Hero */}
+          <Specimen
+            title="Hero Section"
+            description="Marketing hero with eyebrow, gradient title, subtitle, and CTA actions."
+            code={`<Hero
+  eyebrow={<Badge color="accent">New Release</Badge>}
+  title="Build faster with NyxWorks"
+  subtitle="The modern design system for beautiful apps."
+  actions={<><Button size="lg">Get Started</Button><Button size="lg" variant="secondary">Learn More</Button></>}
+  gradient
+/>`}
+          >
+            <div className="rounded-xl border border-[var(--color-border)] overflow-hidden bg-[var(--color-bg)]">
+              <Hero
+                eyebrow={<Badge color="accent">New Release</Badge>}
+                title="Build faster with NyxWorks"
+                subtitle="The modern design system for beautiful, consistent applications."
+                actions={<><Button size="lg">Get Started</Button><Button size="lg" variant="secondary">Learn More</Button></>}
+                gradient
+              />
+            </div>
+          </Specimen>
+
+          {/* Feature Grid */}
+          <Specimen
+            title="Feature Grid"
+            description="Feature showcase with icon cards in grid, bento, or alternating layouts."
+            code={`<FeatureGrid
+  title="Everything you need"
+  features={[
+    { icon: <Zap size={24} />, title: "Fast", description: "..." },
+    { icon: <Shield size={24} />, title: "Secure", description: "..." },
+  ]}
+  columns={3}
+/>`}
+          >
+            <FeatureGrid
+              title="Everything you need"
+              subtitle="Build production-ready apps with these primitives."
+              features={[
+                { icon: <Zap size={24} />, title: "Lightning Fast", description: "Optimized for performance with zero runtime overhead." },
+                { icon: <Shield size={24} />, title: "Secure by Default", description: "Built-in security best practices out of the box." },
+                { icon: <BarChart3 size={24} />, title: "Analytics Ready", description: "Track everything with built-in analytics hooks." },
+                { icon: <Layers size={24} />, title: "Composable", description: "Mix and match primitives to build any interface." },
+                { icon: <Rocket size={24} />, title: "Ship Faster", description: "Go from prototype to production in hours, not weeks." },
+                { icon: <Globe size={24} />, title: "Global CDN", description: "Delivered from edge locations worldwide." },
+              ]}
+              columns={3}
+            />
+          </Specimen>
+
+          {/* CTA Section */}
+          <Specimen
+            title="CTA Section"
+            description="Call-to-action in centered, banner, card, or split layouts."
+            code={`<CTASection
+  variant="banner"
+  title="Ready to get started?"
+  description="Start building for free today."
+  actions={<Button className="bg-white text-[var(--color-accent)] hover:bg-white/90">Sign Up Free</Button>}
+/>`}
+          >
+            <div className="space-y-6">
+              <CTASection
+                variant="banner"
+                title="Ready to get started?"
+                description="Start building for free today."
+                actions={<Button className="bg-white text-[var(--color-accent)] hover:bg-white/90">Sign Up Free</Button>}
+              />
+              <CTASection
+                variant="card"
+                title="Upgrade to Pro"
+                description="Unlock all components and templates."
+                actions={<><Button>Upgrade Now</Button><Button variant="ghost">Compare Plans</Button></>}
+              />
+            </div>
+          </Specimen>
+
+          {/* Pricing Tier */}
+          <Specimen
+            title="Pricing Tier"
+            description="Single pricing card — compose in a grid for pricing sections."
+            code={`<PricingTier
+  name="Pro"
+  price="$29"
+  priceSuffix="/mo"
+  featured
+  badge={<Badge color="accent" size="sm">Popular</Badge>}
+  features={[{ text: "Unlimited projects" }, { text: "Priority support" }]}
+  cta={<Button className="w-full">Get Started</Button>}
+/>`}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
+              <PricingTier
+                name="Starter"
+                description="For individuals"
+                price="$0"
+                priceSuffix="/mo"
+                features={[
+                  { text: "5 projects" },
+                  { text: "Basic analytics" },
+                  { text: "Community support" },
+                  { text: "Priority support", included: false },
+                ]}
+                cta={<Button variant="secondary" className="w-full">Get Started</Button>}
+              />
+              <PricingTier
+                name="Pro"
+                description="For teams"
+                price="$29"
+                priceSuffix="/mo"
+                featured
+                badge={<Badge color="accent" size="sm">Popular</Badge>}
+                features={[
+                  { text: "Unlimited projects" },
+                  { text: "Advanced analytics" },
+                  { text: "Priority support" },
+                  { text: "Custom domains" },
+                ]}
+                cta={<Button className="w-full">Get Started</Button>}
+              />
+              <PricingTier
+                name="Enterprise"
+                description="Custom solutions"
+                price="$99"
+                priceSuffix="/mo"
+                features={[
+                  { text: "Everything in Pro" },
+                  { text: "SSO & SAML" },
+                  { text: "Dedicated support" },
+                  { text: "SLA guarantee" },
+                ]}
+                cta={<Button variant="secondary" className="w-full">Contact Sales</Button>}
+              />
+            </div>
+          </Specimen>
+
+          {/* Testimonial Card */}
+          <Specimen
+            title="Testimonial Card"
+            description="Customer quote card in default, featured, and minimal variants."
+            code={`<TestimonialCard
+  quote="NyxWorks saved us months of design work."
+  author="Sarah Chen"
+  role="CTO at TechCo"
+  avatar={<Avatar name="SC" size="sm" />}
+/>`}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
+              <TestimonialCard
+                quote="NyxWorks saved us months of design work. The components are polished and production-ready."
+                author="Sarah Chen"
+                role="CTO at TechCo"
+                avatar={<Avatar name="SC" size="sm" />}
+              />
+              <TestimonialCard
+                variant="featured"
+                quote="The best design system we've used. Dark mode support is flawless."
+                author="Alex Rivera"
+                role="Lead Designer"
+                avatar={<Avatar name="AR" size="sm" />}
+              />
+            </div>
+          </Specimen>
+
+          {/* Logo Cloud */}
+          <Specimen
+            title="Logo Cloud"
+            description="Row of partner/client logos with hover opacity and grayscale effects."
+            code={`<LogoCloud
+  title="Trusted by leading companies"
+  logos={[
+    { content: <span className="text-lg font-bold">Acme</span> },
+    { content: <span className="text-lg font-bold">Globex</span> },
+  ]}
+/>`}
+          >
+            <LogoCloud
+              title="Trusted by leading companies"
+              logos={[
+                { content: <span className="text-lg font-bold text-[var(--color-text-primary)]">Acme</span> },
+                { content: <span className="text-lg font-bold text-[var(--color-text-primary)]">Globex</span> },
+                { content: <span className="text-lg font-bold text-[var(--color-text-primary)]">Initech</span> },
+                { content: <span className="text-lg font-bold text-[var(--color-text-primary)]">Hooli</span> },
+                { content: <span className="text-lg font-bold text-[var(--color-text-primary)]">Pied Piper</span> },
+              ]}
+            />
+          </Specimen>
+
+          {/* Newsletter */}
+          <Specimen
+            title="Newsletter"
+            description="Email capture section in centered, inline, or card variants."
+            code={`<Newsletter
+  title="Stay in the loop"
+  description="Get the latest updates delivered to your inbox."
+  onSubmit={(email) => console.log(email)}
+/>`}
+          >
+            <div className="max-w-lg mx-auto">
+              <Newsletter
+                variant="card"
+                title="Stay in the loop"
+                description="Get the latest updates delivered to your inbox."
+              />
+            </div>
+          </Specimen>
+
+          {/* FAQ */}
+          <Specimen
+            title="FAQ / Accordion"
+            description="Collapsible Q&A list with single or multi-open mode."
+            code={`<FAQ
+  title="Frequently Asked Questions"
+  items={[
+    { question: "How does billing work?", answer: "We bill monthly..." },
+    { question: "Can I cancel anytime?", answer: "Yes, you can..." },
+  ]}
+/>`}
+          >
+            <FAQ
+              title="Frequently Asked Questions"
+              items={[
+                { question: "How does billing work?", answer: "We bill monthly based on your selected plan. You can upgrade or downgrade at any time." },
+                { question: "Can I cancel anytime?", answer: "Yes, you can cancel your subscription at any time. No questions asked." },
+                { question: "Do you offer a free trial?", answer: "Yes, all plans come with a 14-day free trial. No credit card required." },
+              ]}
+            />
+          </Specimen>
+
+          {/* Team Member */}
+          <Specimen
+            title="Team Member"
+            description="Team member card with avatar, bio, and social links."
+            code={`<TeamMember
+  name="Jane Smith"
+  role="Lead Designer"
+  avatar={<Avatar name="JS" size="lg" />}
+  bio="Passionate about creating beautiful user experiences."
+  socials={[{ icon: <Twitter size={16} />, href: "#" }]}
+/>`}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl">
+              <TeamMember
+                name="Jane Smith"
+                role="Lead Designer"
+                avatar={<Avatar name="JS" size="lg" />}
+                socials={[
+                  { icon: <Twitter size={16} />, href: "#" },
+                  { icon: <Linkedin size={16} />, href: "#" },
+                ]}
+              />
+              <TeamMember
+                name="Alex Kim"
+                role="Engineer"
+                avatar={<Avatar name="AK" size="lg" />}
+                socials={[
+                  { icon: <Github size={16} />, href: "#" },
+                ]}
+              />
+              <TeamMember
+                name="Sam Lee"
+                role="Product Lead"
+                avatar={<Avatar name="SL" size="lg" />}
+                socials={[
+                  { icon: <Twitter size={16} />, href: "#" },
+                  { icon: <Linkedin size={16} />, href: "#" },
+                ]}
+              />
+            </div>
+          </Specimen>
+
+          {/* Blog Card */}
+          <Specimen
+            title="Blog Card"
+            description="Article preview card in vertical, horizontal, or featured layouts."
+            code={`<BlogCard
+  title="Getting Started with NyxWorks"
+  excerpt="Learn how to set up the design system."
+  category={<Badge color="accent" size="sm">Tutorial</Badge>}
+  author="Jane Smith"
+  date="Mar 10, 2026"
+/>`}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
+              <BlogCard
+                title="Getting Started with NyxWorks"
+                excerpt="Learn how to set up the design system in your project."
+                image={<div className="w-full h-full bg-[var(--color-bg-card-hover)] flex items-center justify-center"><ImageIcon size={32} className="text-[var(--color-text-muted)]" /></div>}
+                category={<Badge color="accent" size="sm">Tutorial</Badge>}
+                author="Jane Smith"
+                date="Mar 10, 2026"
+                href="#"
+              />
+              <BlogCard
+                title="Dark Mode Best Practices"
+                excerpt="Tips for building great dark mode experiences with CSS variables."
+                image={<div className="w-full h-full bg-[var(--color-bg-card-hover)] flex items-center justify-center"><ImageIcon size={32} className="text-[var(--color-text-muted)]" /></div>}
+                category={<Badge color="info" size="sm">Design</Badge>}
+                author="Alex Kim"
+                date="Mar 8, 2026"
+                href="#"
+              />
+            </div>
+          </Specimen>
+
+          {/* Flyout Menu */}
+          <Specimen
+            title="Flyout Menu"
+            description="Rich dropdown with icon + description items."
+            code={`<FlyoutMenu
+  trigger={<Button variant="secondary" size="sm">Products <ChevronDown size={14} /></Button>}
+  items={[
+    { id: "analytics", label: "Analytics", description: "Get insights", icon: <BarChart3 size={18} /> },
+    { id: "security", label: "Security", description: "Lock it down", icon: <Shield size={18} /> },
+  ]}
+/>`}
+          >
+            <FlyoutMenu
+              trigger={<Button variant="secondary" size="sm">Products <ChevronDown size={14} className="ml-1" /></Button>}
+              items={[
+                { id: "analytics", label: "Analytics", description: "Get real-time insights into your data", icon: <BarChart3 size={18} /> },
+                { id: "security", label: "Security", description: "Advanced protection for your apps", icon: <Shield size={18} /> },
+                { id: "integrations", label: "Integrations", description: "Connect with your favorite tools", icon: <Layers size={18} /> },
+              ]}
+              footer={<a href="#" className="text-sm text-[var(--color-accent-light)] hover:underline">View all products →</a>}
+            />
+          </Specimen>
+
+          {/* ── Ecommerce Components ─────────────────────────── */}
+          <div className="pt-8">
+            <h2 className="text-xl font-bold text-[var(--color-text-primary)] mb-1">Ecommerce Components</h2>
+            <p className="text-sm text-[var(--color-text-muted)] mb-6">Product cards, cart, checkout, ratings, and more.</p>
+          </div>
+
+          {/* Product Card */}
+          <Specimen
+            title="Product Card"
+            description="Product display card with image, price, rating, and action."
+            code={`<ProductCard
+  title="Classic T-Shirt"
+  price="$35"
+  originalPrice="$50"
+  rating={4.5}
+  reviewCount={128}
+  badge={<Badge color="error" size="sm">Sale</Badge>}
+  action={<Button size="sm" className="w-full">Add to Cart</Button>}
+/>`}
+          >
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-2xl">
+              <ProductCard
+                title="Classic T-Shirt"
+                price="$35"
+                originalPrice="$50"
+                rating={4.5}
+                reviewCount={128}
+                image={<div className="w-full h-full bg-[var(--color-bg-card-hover)] flex items-center justify-center"><Package size={32} className="text-[var(--color-text-muted)]" /></div>}
+                badge={<Badge color="error" size="sm">Sale</Badge>}
+                action={<Button size="sm" className="w-full mt-2">Add to Cart</Button>}
+              />
+              <ProductCard
+                title="Running Shoes"
+                price="$120"
+                rating={4.8}
+                reviewCount={256}
+                image={<div className="w-full h-full bg-[var(--color-bg-card-hover)] flex items-center justify-center"><Package size={32} className="text-[var(--color-text-muted)]" /></div>}
+                action={<Button size="sm" className="w-full mt-2">Add to Cart</Button>}
+              />
+              <ProductCard
+                title="Leather Wallet"
+                price="$65"
+                rating={4.2}
+                image={<div className="w-full h-full bg-[var(--color-bg-card-hover)] flex items-center justify-center"><Package size={32} className="text-[var(--color-text-muted)]" /></div>}
+                badge={<Badge color="accent" size="sm">New</Badge>}
+                action={<Button size="sm" className="w-full mt-2">Add to Cart</Button>}
+              />
+            </div>
+          </Specimen>
+
+          {/* Rating */}
+          <Specimen
+            title="Rating"
+            description="Star rating display (readonly) and interactive input."
+            code={`<Rating value={4.5} showValue reviewCount="128 reviews" />
+<Rating value={ratingValue} readonly={false} onChange={setRatingValue} />`}
+          >
+            <div className="space-y-4">
+              <div>
+                <p className="text-xs font-medium text-[var(--color-text-muted)] mb-2">Readonly</p>
+                <Rating value={4.5} showValue reviewCount="128 reviews" />
+              </div>
+              <div>
+                <p className="text-xs font-medium text-[var(--color-text-muted)] mb-2">Interactive</p>
+                <Rating value={ratingValue} readonly={false} onChange={setRatingValue} size="lg" />
+              </div>
+            </div>
+          </Specimen>
+
+          {/* Price Tag */}
+          <Specimen
+            title="Price Tag"
+            description="Formatted price with optional original price and sale badge."
+            code={`<PriceTag price="$29" />
+<PriceTag price="$29" originalPrice="$49" saleBadge />
+<PriceTag price="$199" size="lg" />`}
+          >
+            <div className="space-y-3">
+              <PriceTag price="$29" size="sm" />
+              <PriceTag price="$29" originalPrice="$49" saleBadge />
+              <PriceTag price="$199" size="lg" />
+            </div>
+          </Specimen>
+
+          {/* Cart Item */}
+          <Specimen
+            title="Cart Item"
+            description="Shopping cart line item with quantity controls."
+            code={`<CartItem
+  title="Classic T-Shirt"
+  variant="Black / Medium"
+  price="$35.00"
+  quantity={2}
+  onQuantityChange={setCartQty}
+  onRemove={() => {}}
+/>`}
+          >
+            <div className="max-w-md divide-y divide-[var(--color-border)]">
+              <CartItem
+                title="Classic T-Shirt"
+                variant="Black / Medium"
+                price="$35.00"
+                quantity={cartQty}
+                onQuantityChange={setCartQty}
+                onRemove={() => {}}
+                image={<div className="w-full h-full bg-[var(--color-bg-card-hover)] flex items-center justify-center"><Package size={20} className="text-[var(--color-text-muted)]" /></div>}
+              />
+              <CartItem
+                title="Running Shoes"
+                variant="White / Size 10"
+                price="$120.00"
+                quantity={1}
+                image={<div className="w-full h-full bg-[var(--color-bg-card-hover)] flex items-center justify-center"><Package size={20} className="text-[var(--color-text-muted)]" /></div>}
+              />
+            </div>
+          </Specimen>
+
+          {/* Order Summary */}
+          <Specimen
+            title="Order Summary"
+            description="Checkout summary card with line items and CTA."
+            code={`<OrderSummary
+  lines={[
+    { label: "Subtotal", value: "$155.00" },
+    { label: "Shipping", value: "$5.00" },
+    { label: "Tax", value: "$12.40" },
+    { label: "Total", value: "$172.40", isTotal: true },
+  ]}
+  action={<Button className="w-full">Checkout</Button>}
+/>`}
+          >
+            <div className="max-w-sm">
+              <OrderSummary
+                lines={[
+                  { label: "Subtotal", value: "$155.00" },
+                  { label: "Shipping", value: "$5.00" },
+                  { label: "Tax", value: "$12.40" },
+                  { label: "Total", value: "$172.40", isTotal: true },
+                ]}
+                action={<Button className="w-full">Checkout</Button>}
+              />
+            </div>
+          </Specimen>
+
+          {/* Category Filter */}
+          <Specimen
+            title="Category Filter"
+            description="Faceted filter sidebar with collapsible groups."
+            code={`<CategoryFilter
+  groups={[
+    { label: "Category", options: [{ value: "shoes", label: "Shoes", count: 42 }] },
+    { label: "Color", options: [{ value: "black", label: "Black", count: 18 }] },
+  ]}
+  selected={filters}
+  onChange={setFilters}
+/>`}
+          >
+            <div className="max-w-xs">
+              <CategoryFilter
+                groups={[
+                  { label: "Category", options: [
+                    { value: "shoes", label: "Shoes", count: 42 },
+                    { value: "clothing", label: "Clothing", count: 67 },
+                    { value: "accessories", label: "Accessories", count: 23 },
+                  ]},
+                  { label: "Color", options: [
+                    { value: "black", label: "Black", count: 18 },
+                    { value: "white", label: "White", count: 12 },
+                    { value: "blue", label: "Blue", count: 8 },
+                  ]},
+                  { label: "Size", options: [
+                    { value: "s", label: "Small", count: 15 },
+                    { value: "m", label: "Medium", count: 22 },
+                    { value: "l", label: "Large", count: 19 },
+                  ]},
+                ]}
+                selected={filters}
+                onChange={setFilters}
+              />
+            </div>
+          </Specimen>
+
+          {/* Promo Section */}
+          <Specimen
+            title="Promo Section"
+            description="Incentive/benefit strip for shipping, returns, warranty."
+            code={`<PromoSection
+  bg="card"
+  items={[
+    { icon: <Truck size={20} />, title: "Free Shipping", description: "On orders over $50" },
+    { icon: <RotateCcw size={20} />, title: "Easy Returns", description: "30-day return policy" },
+    { icon: <Lock size={20} />, title: "Secure Checkout", description: "SSL encrypted" },
+  ]}
+/>`}
+          >
+            <PromoSection
+              bg="card"
+              items={[
+                { icon: <Truck size={20} />, title: "Free Shipping", description: "On orders over $50" },
+                { icon: <RotateCcw size={20} />, title: "Easy Returns", description: "30-day return policy" },
+                { icon: <Lock size={20} />, title: "Secure Checkout", description: "SSL encrypted" },
+              ]}
+            />
           </Specimen>
         </div>
       </div>

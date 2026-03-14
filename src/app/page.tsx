@@ -12,7 +12,7 @@ const sections = [
   },
   {
     title: "Components",
-    description: "45 reusable UI components with live previews and source code.",
+    description: "63 reusable UI components with live previews and source code.",
     href: "/components",
     icon: Component,
   },
@@ -24,7 +24,7 @@ const sections = [
   },
   {
     title: "Examples",
-    description: "9 full page layouts — dashboard, auth, CRUD, settings, onboarding, pricing, and more.",
+    description: "15 full page layouts — dashboard, auth, CRUD, settings, onboarding, pricing, marketing, ecommerce, and more.",
     href: "/examples",
     icon: Layers,
   },
