@@ -14,7 +14,7 @@ export default function Specimen({ title, description, children, code }: Specime
   const [showCode, setShowCode] = useState(false);
 
   return (
-    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-card)] overflow-hidden">
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-card)]">
       <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--color-border)]">
         <div>
           <h3 className="text-lg font-semibold">{title}</h3>

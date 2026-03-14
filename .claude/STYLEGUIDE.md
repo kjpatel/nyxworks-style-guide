@@ -772,6 +772,14 @@ import CTASection from "@/components/ui/CTASection";
   actions={<><Button>Start Free Trial</Button><Button variant="secondary">Contact Sales</Button></>}
 />
 
+// Banner variant — use raw <button> for white-on-gradient (Button's text-white can't be overridden via className in Tailwind v4)
+<CTASection
+  variant="banner"
+  title="Ready to get started?"
+  description="Start building for free today."
+  actions={<button className="px-4 py-2 rounded-lg bg-white text-[var(--color-accent)] font-medium text-sm hover:bg-white/90 transition-colors">Sign Up Free</button>}
+/>
+
 // Variants: "centered" | "split" | "banner" | "card"
 // media?: ReactNode — for split variant
 ```

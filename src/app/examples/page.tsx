@@ -850,7 +850,7 @@ function ErrorPageExample() {
 
 function SaaSLandingExample() {
   return (
-    <div className="space-y-0 -m-6 overflow-hidden rounded-2xl">
+    <div className="space-y-0 overflow-hidden rounded-2xl">
       <Hero
         eyebrow={<Badge color="accent">Now in Beta</Badge>}
         title="Ship products 10x faster"
@@ -898,7 +898,7 @@ function SaaSLandingExample() {
           <TestimonialCard quote="The dark mode support is incredible." author="Maria Lopez" role="Frontend Engineer" avatar={<Avatar name="ML" size="sm" />} />
         </div>
       </div>
-      <CTASection variant="banner" title="Ready to get started?" description="Start building for free — no credit card required." actions={<Button className="bg-white text-[var(--color-accent)] hover:bg-white/90">Sign Up Free</Button>} />
+      <CTASection variant="banner" title="Ready to get started?" description="Start building for free — no credit card required." actions={<button className="px-4 py-2 rounded-lg bg-white text-[var(--color-accent)] font-medium text-sm hover:bg-white/90 transition-colors">Sign Up Free</button>} />
       <div className="py-12">
         <FAQ
           title="Frequently Asked Questions"
@@ -915,7 +915,7 @@ function SaaSLandingExample() {
 
 function ProductLaunchExample() {
   return (
-    <div className="space-y-0 -m-6 overflow-hidden rounded-2xl">
+    <div className="space-y-0 overflow-hidden rounded-2xl">
       <Hero
         variant="withScreenshot"
         eyebrow={<Badge color="accent">Just Launched</Badge>}

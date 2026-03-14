@@ -1242,7 +1242,7 @@ export default function ComponentsPage() {
   variant="banner"
   title="Ready to get started?"
   description="Start building for free today."
-  actions={<Button className="bg-white text-[var(--color-accent)] hover:bg-white/90">Sign Up Free</Button>}
+  actions={<button className="px-4 py-2 rounded-lg bg-white text-[var(--color-accent)] font-medium text-sm hover:bg-white/90 transition-colors">Sign Up Free</button>}
 />`}
           >
             <div className="space-y-6">
@@ -1250,7 +1250,7 @@ export default function ComponentsPage() {
                 variant="banner"
                 title="Ready to get started?"
                 description="Start building for free today."
-                actions={<Button className="bg-white text-[var(--color-accent)] hover:bg-white/90">Sign Up Free</Button>}
+                actions={<button className="px-4 py-2 rounded-lg bg-white text-[var(--color-accent)] font-medium text-sm hover:bg-white/90 transition-colors">Sign Up Free</button>}
               />
               <CTASection
                 variant="card"
